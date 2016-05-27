@@ -1,0 +1,252 @@
+<apex:page Controller="bhd.bhd_controller_match" title="Match" tabStyle="bhd_match_tab__tab" >
+	<apex:outputText style="display:none" id="ajax_message" value="{!ajax_message}" styleClass="ajax_message_input" />
+    <apex:include pageName="bhd__bhd_ajax"/>
+    <apex:include pageName="bhd__bhd_tooltip"/>
+	<apex:pageBlock title="Unavailable" rendered="{!creds==false}"> 
+        <apex:pageMessage summary="Please complete Initial Setup" severity="warning" strength="3" />
+    </apex:pageBlock>	
+	<apex:pageBlock title="Match" rendered="{!creds!=false}"> 
+		<apex:pagemessage severity="info" strength="1">
+	        You can setup special mappings in order to populate BHD Directory Codes in your Accounts, which will enable data updates for those Accounts.
+	    	<br/><br/>
+	    	Accounts will only be matched if a unique match can be found based on the mappings you provide.
+	    	<br/><br/>
+	    	The matching process is not an exact science and can result in false-positives. Please review results and make corrections as required prior to running a sync to avoid accounts getting updated with the wrong information. For more information on matching, please review the FAQ entitled "<apex:outputLink value="{!$Page.bhd__bhd_help}#">What does a match do</apex:outputLink>."
+	    </apex:pagemessage>
+        <apex:pageBlockSection columns="2">
+           	<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="Match Destination" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="You can choose to have matched Accounts automatically updated, or sent to CSV file that you can download, verify, and import manually at your discretion."/>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >     				
+				   	<apex:selectList styleClass="savable" style="width: 200px;" value="{!append.bhd__value__c}" size="1">
+			            <apex:selectOptions value="{!append_options}"/>
+			        </apex:selectList>
+	   				<apex:commandButton action="{!save_append}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     				<apex:commandLink target="_blank" action="{!download_append}" value="Download Matches"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+           	<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="Rematch Existing Matches" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="Attempt to match all Accounts, not just Accounts that currently lack a matched BHD Directory Code."/>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >     				
+				   	<apex:selectList styleClass="savable" style="width: 200px;" value="{!rematch.bhd__value__c}" size="1">
+			            <apex:selectOptions value="{!rematch_options}"/>
+			        </apex:selectList>
+	   				<apex:commandButton action="{!save_rematch}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+           	<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="BHD Directory Code" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="If you already have Directory Codes in your instance, you can use them to set up the required matches for this integration."/>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="dircode"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!dircode}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['dircode']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['dircode']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+           	<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="NPI" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="National Provider Identifier"/>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="npi"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!npi}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['npi']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['npi']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+           	<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="DEA" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="Unique Identifier assigned to providers allowed to prescribe controlled substances"/>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="dea"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!dea}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['dea']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['dea']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="MPN" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="Medicare Provider Number"/> 
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="mpn"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!mpn}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['mpn']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['mpn']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="DUNS Number" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="Data Universal Numbering System: Unique Identifier for Single Business Entity"/> 
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="dunns"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!dunns}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['dunns']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['dunns']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="Phone Number" style="font-weight:bold;"/> 
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="phone"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!phone}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['phone']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['phone']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+			
+			<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="800 Number" style="font-weight:bold;"/> 
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="phone800"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!phone800}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['phone800']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['phone800']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+			
+			<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="Fax Number" style="font-weight:bold;"/> 
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="fax"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!fax}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['fax']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['fax']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+			
+			<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="URL" style="font-weight:bold;"/> 
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="url"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!url}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['url']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['url']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+			
+			<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="Name" style="font-weight:bold;"/> <span class="comment">(must be used in conjunction with Zip Code)</span>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="name"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!name}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['name']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['name']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="Address" style="font-weight:bold;"/> <span class="comment">(must be used in conjunction with Zip Code)</span>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="address"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!address}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['address']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['address']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+			   	<apex:outputLabel value="Zip Code" style="font-weight:bold;"/>  <span class="comment">(must be used in conjunction with Name or Address)</span>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:form >
+					<input type="hidden" name="field" value="zip"/>
+     				<select class="sort_list savable" name="selection">
+     					<option></option>
+       					<apex:repeat value="{!zip}" var="field">
+       						<apex:outputText rendered="{!field['label']==sel['zip']}"><option value="{!field['label']}" selected="selected">{!field['name']}</option></apex:outputText>
+       						<apex:outputText rendered="{!field['label']!=sel['zip']}"><option value="{!field['label']}">{!field['name']}</option></apex:outputText>
+       					</apex:repeat>
+     				</select>
+	   				<apex:commandButton action="{!save_map}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+     			</apex:form>
+			</apex:pageBlockSectionItem>
+		</apex:pageBlockSection>
+		<apex:form >
+			<br/>
+			<div style="text-align:center;">
+				<apex:commandButton style="width: 100%;" value="Save All" onclick="bhd_j('.save_button').click();return false;"/>
+			</div>
+			<br/><br/>
+			<apex:commandButton styleClass="begin_match" style="width: 100%;font-size:12-%;" action="{!match}" value="Begin Match" rerender="ajax_message"  oncomplete="ajax_stop(this);" onclick="ajax_start(this);bhd_j('.begin_match').nextAll('span:first').show();"/>
+   			<br/><br/>   			
+    		<apex:pageMessages />
+    		<script type="text/javascript">
+				bhd_j('td.messageCell br').eq(1).before(' <a href="../apexpages/setup/listAsyncApexJobs.apexp" style="margin:0;">here</a>.')
+				bhd_j('.begin_match').nextAll('span:first').hide()
+			</script>
+   		</apex:form>
+    </apex:pageBlock>
+</apex:page>

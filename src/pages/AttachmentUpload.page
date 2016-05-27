@@ -1,0 +1,36 @@
+<apex:page id="page" title="Attachment Upload" standardController="Custom_Attachment__c" extensions="AttachmentUploadController" >
+
+	<apex:pageMessages id="messages"/>
+	
+	<apex:outputPanel id="pageContainer">
+	
+		<apex:form id="attchFrm">
+		
+			<apex:pageBlock id="attchDetail" title="Upload an Attachment" mode="edit">
+
+				<apex:pageBlockButtons location="both">
+					<apex:commandButton action="{!save}" value="Save"/>
+					<apex:commandButton action="{!cancel}" value="Cancel"/>
+				</apex:pageBlockButtons>
+					
+				<apex:pageBlockSection title="Attachment Details" columns="1">
+					
+					<apex:pageBlockSectionItem >
+						<apex:outputLabel value="File" for="fileInput"/>
+						<apex:inputFile id="fileInput" value="{!attachment.Body}" filename="{!attachment.Name}" required="true"/>
+					</apex:pageBlockSectionItem>
+					
+					<apex:inputField value="{!attachment.Description}"/>
+					
+					<apex:outputField value="{!customAttachment.Investment__c}" rendered="{!customAttachment.Investment__c != null}"/>
+					
+					<apex:outputField value="{!customAttachment.Property__c}" rendered="{!customAttachment.Property__c != null}"/>
+					
+				</apex:pageBlockSection>
+			
+			</apex:pageBlock>
+
+		</apex:form>
+	
+	</apex:outputPanel>
+</apex:page>

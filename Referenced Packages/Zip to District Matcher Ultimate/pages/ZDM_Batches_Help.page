@@ -1,0 +1,21 @@
+<apex:page id="kwPage" showHeader="false" sidebar="false" standardStylesheets="false" title="KnowWho Lobbying Activity Tracker Help" >
+
+<style>
+body {
+margin: 0px 0px 0px 0px;
+padding: 0px 0px 0px 0px;
+}
+</style>
+
+<apex:pageBlock id="kwPageBlock">
+<apex:iframe frameborder="false" id="kwHelp" scrolling="false" src="https://www.knowwho.com/salesforce/help/zdm_batch.asp" />
+</apex:pageBlock>
+
+<script>
+var sh = parseInt(window.innerHeight);
+document.getElementById('{!$Component.kwPage:kwPageBlock}').style.height = sh + 'px';
+var sframe = document.getElementById('kwHelp');
+sframe.height = sh;
+</script>
+
+</apex:page>

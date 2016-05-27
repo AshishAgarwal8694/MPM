@@ -1,0 +1,11 @@
+<apex:page Controller="bhd.bhd_controller_dashboard" title="BHD Portal">
+	<apex:form >
+		<div style="margin: auto;text-align:center;">
+			<br/><br/><br/><br/><br/>
+			<img src="https://www.billiansonline.com/images/logo.png"/>
+			<br/><br/>
+			<apex:commandButton value="BHD Portal Dashboard" onclick="window.open('{!JSENCODE(url)}','_blank');return false;" style="width:250px;"/>
+			<br/><br/><br/><br/><br/>
+		</div>
+	</apex:form>
+</apex:page>

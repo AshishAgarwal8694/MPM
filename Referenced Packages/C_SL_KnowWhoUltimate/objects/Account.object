@@ -1,0 +1,3997 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>CountyLocal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>County</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>County_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>County Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Municipal_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Municipal Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MunicipalityLocal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Municipality</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StateLocal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>State</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AK - Alaska</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AL - Alabama</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AR - Arkansas</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AS - American Samoa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AZ - Arizona</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CA - California</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CO - Colorado</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CT - Connecticut</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DC - District of Columbia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DE - Delaware</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FL - Florida</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GA - Georgia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GU - Guam</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HI - Hawaii</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IA - Iowa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ID - Idaho</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IL - Illinois</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IN - Indiana</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KS - Kansas</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KY - Kentucky</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LA - Louisiana</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MA - Massachusetts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MD - Maryland</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ME - Maine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MI - Michigan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MN - Minnesota</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MO - Missouri</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MP - Mariana Islands</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS - Mississippi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MT - Montana</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NC - North Carolina</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ND - North Dakota</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NE - Nebraska</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NH - New Hampshire</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NJ - New Jersey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NM - New Mexico</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NV - Nevada</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NY - New York</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OH - Ohio</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OK - Oklahoma</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OR - Oregon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PA - Pennsylvania</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PR - Puerto Rico</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RI - Rhode Island</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SC - South Carolina</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SD - South Dakota</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TN - Tennessee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TX - Texas</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UT - Utah</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VA - Virginia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VI - Virgin Islands</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VT - Vermont</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WA - Washington</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WI - Wisconsin</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WV - West Virginia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WY - Wyoming</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <listViews>
+        <fullName>KWL_NY_Counties</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.URL</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>kw__KW_Category__c</field>
+            <operation>equals</operation>
+            <value>Local County Office</value>
+        </filters>
+        <filters>
+            <field>StateLocal__c</field>
+            <operation>equals</operation>
+            <value>NY - New York</value>
+        </filters>
+        <label>KWL NY Counties</label>
+        <sharedTo>
+            <group>Know_Who_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>KWL_NY_Municipalities</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.URL</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>kw__KW_Category__c</field>
+            <operation>equals</operation>
+            <value>Local Municipal Office</value>
+        </filters>
+        <filters>
+            <field>StateLocal__c</field>
+            <operation>equals</operation>
+            <value>NY - New York</value>
+        </filters>
+        <label>KWL NY Municipalities</label>
+        <sharedTo>
+            <group>Know_Who_Group</group>
+        </sharedTo>
+    </listViews>
+    <recordTypes>
+        <fullName>KW_Local_County</fullName>
+        <active>true</active>
+        <label>KW - Local County</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>StateLocal__c</picklist>
+            <values>
+                <fullName>AK - Alaska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AL - Alabama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AR - Arkansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - American Samoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AZ - Arizona</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CA - California</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO - Colorado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT - Connecticut</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DC - District of Columbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE - Delaware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FL - Florida</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GA - Georgia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GU - Guam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HI - Hawaii</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IA - Iowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID - Idaho</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL - Illinois</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN - Indiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KS - Kansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KY - Kentucky</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LA - Louisiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MA - Massachusetts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD - Maryland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ME - Maine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MI - Michigan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MN - Minnesota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MO - Missouri</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP - Mariana Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS - Mississippi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT - Montana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NC - North Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND - North Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NE - Nebraska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NH - New Hampshire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NJ - New Jersey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NM - New Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NV - Nevada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY - New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OH - Ohio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OK - Oklahoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OR - Oregon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PA - Pennsylvania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR - Puerto Rico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RI - Rhode Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC - South Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SD - South Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TN - Tennessee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TX - Texas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UT - Utah</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VA - Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI - Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VT - Vermont</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA - Washington</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WI - Wisconsin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WV - West Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WY - Wyoming</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Caucus_Membership_Joint__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Caucus_Membership__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Chamber__c</picklist>
+            <values>
+                <fullName>State House</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Senate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US House</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Senate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Committee_Membership__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Address__c</picklist>
+            <values>
+                <fullName>Fed Capitol Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Caucus Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Committee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed District Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Leadership Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Officer Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Subcommittee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Capitol Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Caucus Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Committee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State District Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Leadership Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Officer Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Subcommittee Office</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Category__c</picklist>
+            <values>
+                <fullName>Fed Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Legislator Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Legislator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Staffer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Legislator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Staffer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Legislator Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Officer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Directory__c</picklist>
+            <values>
+                <fullName>CongressForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FedExecForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GovAffairsForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LocalForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MediaForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StateForce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Template__c</picklist>
+            <values>
+                <fullName>AccountCaucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCaucusFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCommittee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCommitteeFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountMember</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountMemberFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountOfficer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountOfficerFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCaucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCaucusFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCommittee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCommitteeFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateExecutive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateExecutiveFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateMember</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateMemberFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateOfficer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateOfficerFormer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Leadership_Positions__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Political_Party__c</picklist>
+            <values>
+                <fullName>Democratic Party</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Republican Party</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Reelect_Status__c</picklist>
+            <values>
+                <fullName>Reelection status for this legislator is not available</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator is retiring at the end of this term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator is running for a different office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator may run for reelection</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__StateOfCoverage__c</picklist>
+            <values>
+                <fullName>AK - Alaska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AL - Alabama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AR - Arkansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - American Samoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AZ - Arizona</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CA - California</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO - Colorado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT - Connecticut</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DC - District of Columbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE - Delaware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FL - Florida</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GA - Georgia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GU - Guam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HI - Hawaii</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IA - Iowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID - Idaho</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL - Illinois</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN - Indiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KS - Kansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KY - Kentucky</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LA - Louisiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MA - Massachusetts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD - Maryland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ME - Maine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MI - Michigan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MN - Minnesota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MO - Missouri</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP - Mariana Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS - Mississippi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT - Montana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NC - North Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND - North Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NE - Nebraska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NH - New Hampshire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NJ - New Jersey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NM - New Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NV - Nevada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY - New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OH - Ohio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OK - Oklahoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OR - Oregon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PA - Pennsylvania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR - Puerto Rico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RI - Rhode Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC - South Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SD - South Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TN - Tennessee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TX - Texas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UT - Utah</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VA - Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI - Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VT - Vermont</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA - Washington</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WI - Wisconsin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WV - West Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WY - Wyoming</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>KW_Local_County_Former</fullName>
+        <active>true</active>
+        <label>KW - Local County Former</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>StateLocal__c</picklist>
+            <values>
+                <fullName>AK - Alaska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AL - Alabama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AR - Arkansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - American Samoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AZ - Arizona</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CA - California</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO - Colorado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT - Connecticut</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DC - District of Columbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE - Delaware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FL - Florida</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GA - Georgia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GU - Guam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HI - Hawaii</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IA - Iowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID - Idaho</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL - Illinois</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN - Indiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KS - Kansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KY - Kentucky</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LA - Louisiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MA - Massachusetts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD - Maryland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ME - Maine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MI - Michigan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MN - Minnesota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MO - Missouri</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP - Mariana Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS - Mississippi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT - Montana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NC - North Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND - North Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NE - Nebraska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NH - New Hampshire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NJ - New Jersey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NM - New Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NV - Nevada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY - New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OH - Ohio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OK - Oklahoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OR - Oregon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PA - Pennsylvania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR - Puerto Rico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RI - Rhode Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC - South Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SD - South Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TN - Tennessee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TX - Texas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UT - Utah</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VA - Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI - Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VT - Vermont</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA - Washington</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WI - Wisconsin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WV - West Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WY - Wyoming</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Caucus_Membership_Joint__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Caucus_Membership__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Chamber__c</picklist>
+            <values>
+                <fullName>State House</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Senate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US House</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Senate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Committee_Membership__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Address__c</picklist>
+            <values>
+                <fullName>Fed Capitol Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Caucus Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Committee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed District Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Leadership Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Officer Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Subcommittee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Capitol Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Caucus Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Committee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State District Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Leadership Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Officer Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Subcommittee Office</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Category__c</picklist>
+            <values>
+                <fullName>Fed Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Legislator Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Legislator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Staffer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Legislator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Staffer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Legislator Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Officer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Directory__c</picklist>
+            <values>
+                <fullName>CongressForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FedExecForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GovAffairsForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LocalForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MediaForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StateForce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Template__c</picklist>
+            <values>
+                <fullName>AccountCaucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCaucusFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCommittee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCommitteeFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountMember</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountMemberFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountOfficer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountOfficerFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCaucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCaucusFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCommittee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCommitteeFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateExecutive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateExecutiveFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateMember</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateMemberFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateOfficer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateOfficerFormer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Leadership_Positions__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Political_Party__c</picklist>
+            <values>
+                <fullName>Democratic Party</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Republican Party</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Reelect_Status__c</picklist>
+            <values>
+                <fullName>Reelection status for this legislator is not available</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator is retiring at the end of this term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator is running for a different office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator may run for reelection</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__StateOfCoverage__c</picklist>
+            <values>
+                <fullName>AK - Alaska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AL - Alabama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AR - Arkansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - American Samoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AZ - Arizona</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CA - California</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO - Colorado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT - Connecticut</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DC - District of Columbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE - Delaware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FL - Florida</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GA - Georgia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GU - Guam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HI - Hawaii</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IA - Iowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID - Idaho</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL - Illinois</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN - Indiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KS - Kansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KY - Kentucky</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LA - Louisiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MA - Massachusetts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD - Maryland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ME - Maine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MI - Michigan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MN - Minnesota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MO - Missouri</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP - Mariana Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS - Mississippi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT - Montana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NC - North Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND - North Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NE - Nebraska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NH - New Hampshire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NJ - New Jersey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NM - New Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NV - Nevada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY - New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OH - Ohio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OK - Oklahoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OR - Oregon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PA - Pennsylvania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR - Puerto Rico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RI - Rhode Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC - South Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SD - South Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TN - Tennessee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TX - Texas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UT - Utah</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VA - Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI - Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VT - Vermont</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA - Washington</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WI - Wisconsin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WV - West Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WY - Wyoming</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>KW_Local_Municipal</fullName>
+        <active>true</active>
+        <label>KW - Local Municipal</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>StateLocal__c</picklist>
+            <values>
+                <fullName>AK - Alaska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AL - Alabama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AR - Arkansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - American Samoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AZ - Arizona</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CA - California</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO - Colorado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT - Connecticut</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DC - District of Columbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE - Delaware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FL - Florida</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GA - Georgia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GU - Guam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HI - Hawaii</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IA - Iowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID - Idaho</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL - Illinois</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN - Indiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KS - Kansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KY - Kentucky</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LA - Louisiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MA - Massachusetts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD - Maryland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ME - Maine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MI - Michigan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MN - Minnesota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MO - Missouri</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP - Mariana Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS - Mississippi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT - Montana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NC - North Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND - North Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NE - Nebraska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NH - New Hampshire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NJ - New Jersey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NM - New Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NV - Nevada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY - New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OH - Ohio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OK - Oklahoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OR - Oregon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PA - Pennsylvania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR - Puerto Rico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RI - Rhode Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC - South Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SD - South Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TN - Tennessee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TX - Texas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UT - Utah</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VA - Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI - Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VT - Vermont</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA - Washington</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WI - Wisconsin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WV - West Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WY - Wyoming</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Caucus_Membership_Joint__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Caucus_Membership__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Chamber__c</picklist>
+            <values>
+                <fullName>State House</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Senate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US House</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Senate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Committee_Membership__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Address__c</picklist>
+            <values>
+                <fullName>Fed Capitol Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Caucus Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Committee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed District Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Leadership Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Officer Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Subcommittee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Capitol Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Caucus Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Committee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State District Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Leadership Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Officer Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Subcommittee Office</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Category__c</picklist>
+            <values>
+                <fullName>Fed Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Legislator Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Legislator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Staffer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Legislator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Staffer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Legislator Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Officer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Directory__c</picklist>
+            <values>
+                <fullName>CongressForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FedExecForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GovAffairsForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LocalForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MediaForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StateForce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Template__c</picklist>
+            <values>
+                <fullName>AccountCaucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCaucusFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCommittee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCommitteeFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountMember</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountMemberFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountOfficer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountOfficerFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCaucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCaucusFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCommittee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCommitteeFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateExecutive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateExecutiveFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateMember</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateMemberFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateOfficer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateOfficerFormer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Leadership_Positions__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Political_Party__c</picklist>
+            <values>
+                <fullName>Democratic Party</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Republican Party</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Reelect_Status__c</picklist>
+            <values>
+                <fullName>Reelection status for this legislator is not available</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator is retiring at the end of this term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator is running for a different office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator may run for reelection</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__StateOfCoverage__c</picklist>
+            <values>
+                <fullName>AK - Alaska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AL - Alabama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AR - Arkansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - American Samoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AZ - Arizona</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CA - California</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO - Colorado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT - Connecticut</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DC - District of Columbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE - Delaware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FL - Florida</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GA - Georgia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GU - Guam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HI - Hawaii</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IA - Iowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID - Idaho</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL - Illinois</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN - Indiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KS - Kansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KY - Kentucky</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LA - Louisiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MA - Massachusetts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD - Maryland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ME - Maine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MI - Michigan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MN - Minnesota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MO - Missouri</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP - Mariana Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS - Mississippi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT - Montana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NC - North Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND - North Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NE - Nebraska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NH - New Hampshire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NJ - New Jersey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NM - New Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NV - Nevada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY - New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OH - Ohio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OK - Oklahoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OR - Oregon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PA - Pennsylvania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR - Puerto Rico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RI - Rhode Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC - South Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SD - South Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TN - Tennessee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TX - Texas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UT - Utah</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VA - Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI - Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VT - Vermont</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA - Washington</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WI - Wisconsin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WV - West Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WY - Wyoming</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>KW_Local_Municipal_Former</fullName>
+        <active>true</active>
+        <label>KW - Local Municipal Former</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Broker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>StateLocal__c</picklist>
+            <values>
+                <fullName>AK - Alaska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AL - Alabama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AR - Arkansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - American Samoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AZ - Arizona</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CA - California</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO - Colorado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT - Connecticut</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DC - District of Columbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE - Delaware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FL - Florida</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GA - Georgia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GU - Guam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HI - Hawaii</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IA - Iowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID - Idaho</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL - Illinois</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN - Indiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KS - Kansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KY - Kentucky</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LA - Louisiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MA - Massachusetts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD - Maryland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ME - Maine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MI - Michigan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MN - Minnesota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MO - Missouri</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP - Mariana Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS - Mississippi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT - Montana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NC - North Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND - North Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NE - Nebraska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NH - New Hampshire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NJ - New Jersey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NM - New Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NV - Nevada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY - New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OH - Ohio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OK - Oklahoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OR - Oregon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PA - Pennsylvania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR - Puerto Rico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RI - Rhode Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC - South Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SD - South Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TN - Tennessee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TX - Texas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UT - Utah</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VA - Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI - Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VT - Vermont</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA - Washington</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WI - Wisconsin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WV - West Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WY - Wyoming</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Caucus_Membership_Joint__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Caucus_Membership__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Chamber__c</picklist>
+            <values>
+                <fullName>State House</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Senate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US House</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Senate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Committee_Membership__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Address__c</picklist>
+            <values>
+                <fullName>Fed Capitol Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Caucus Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Committee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed District Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Leadership Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Officer Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Subcommittee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Capitol Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Caucus Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Committee Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State District Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Leadership Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Officer Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Subcommittee Office</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Category__c</picklist>
+            <values>
+                <fullName>Fed Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Legislator Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fed Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Legislator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Fed Staffer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Legislator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Former State Staffer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local County Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Municipal Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Caucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Committee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Exec Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Leadership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Legislator Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Officer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Directory__c</picklist>
+            <values>
+                <fullName>CongressForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FedExecForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GovAffairsForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LocalForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MediaForce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>StateForce</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__KW_Template__c</picklist>
+            <values>
+                <fullName>AccountCaucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCaucusFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCommittee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountCommitteeFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountMember</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountMemberFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountOfficer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountOfficerFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCaucus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCaucusFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCommittee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateCommitteeFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateExecutive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateExecutiveFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateMember</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateMemberFormer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateOfficer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AccountStateOfficerFormer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Leadership_Positions__c</picklist>
+            <values>
+                <fullName>KnowWho</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Political_Party__c</picklist>
+            <values>
+                <fullName>Democratic Party</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Republican Party</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__Reelect_Status__c</picklist>
+            <values>
+                <fullName>Reelection status for this legislator is not available</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator is retiring at the end of this term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator is running for a different office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>This legislator may run for reelection</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>kw__StateOfCoverage__c</picklist>
+            <values>
+                <fullName>AK - Alaska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AL - Alabama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AR - Arkansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - American Samoa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AZ - Arizona</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CA - California</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO - Colorado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT - Connecticut</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DC - District of Columbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE - Delaware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FL - Florida</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GA - Georgia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GU - Guam</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HI - Hawaii</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IA - Iowa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID - Idaho</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL - Illinois</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN - Indiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KS - Kansas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KY - Kentucky</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LA - Louisiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MA - Massachusetts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD - Maryland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ME - Maine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MI - Michigan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MN - Minnesota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MO - Missouri</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP - Mariana Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS - Mississippi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT - Montana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NC - North Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND - North Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NE - Nebraska</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NH - New Hampshire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NJ - New Jersey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NM - New Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NV - Nevada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY - New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OH - Ohio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OK - Oklahoma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OR - Oregon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PA - Pennsylvania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR - Puerto Rico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RI - Rhode Island</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC - South Carolina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SD - South Dakota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TN - Tennessee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TX - Texas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UT - Utah</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VA - Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI - Virgin Islands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VT - Vermont</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA - Washington</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WI - Wisconsin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WV - West Virginia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WY - Wyoming</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

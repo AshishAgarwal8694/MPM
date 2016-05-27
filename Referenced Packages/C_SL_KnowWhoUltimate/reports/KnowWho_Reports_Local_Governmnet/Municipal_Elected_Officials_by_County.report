@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.kw__Full_Name__c</field>
+    </columns>
+    <columns>
+        <field>Contact.kw__Title__c</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>PHONE1</field>
+    </columns>
+    <columns>
+        <field>Contact.kw__Sort_Order__c</field>
+    </columns>
+    <description>Elected municipal officials located within Erie County, NY with e-mail address and phone number</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact.kw__State__c</column>
+            <operator>startsWith</operator>
+            <value>NY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.CountyLocal__c</column>
+            <operator>equals</operator>
+            <value>Erie</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Elected_Position__c</column>
+            <operator>equals</operator>
+            <value>Yes</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Elected Muni Officials - Erie County, NY</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Contact.kw__Sort_Order__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

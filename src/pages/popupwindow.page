@@ -1,0 +1,33 @@
+<!-- Page is used to popup on "configure project" button click to configure project/milestones/tasks end date and start date. -->
+<apex:page showHeader="false" sidebar="false" standardController="Milestone1_Project__c" extensions="PopUpExtension">
+    <apex:form >
+        <apex:pageBlock id="Pageblock1">
+            <apex:pageBlockSection >            
+                <apex:inputField value="{!Milestone1_Project__c.Kickoff__c}"/>                        
+                    <apex:actionStatus id="actionStatus">
+                        <apex:facet name="stop">
+                            <apex:commandButton action="{!UpdateEstimatedDates}" value="Update"  oncomplete="closeAndRefresh();" status="actionStatus" reRender="Pageblock1,errorMsg"/>
+                        </apex:facet>
+                        <apex:facet name="start"> 
+                            <apex:outputPanel >
+                                <apex:commandButton value="Updating..." status="actionStatus" disabled="true"/>
+                                &nbsp;<img src="/img/loading.gif" valign="middle"/>
+                            </apex:outputPanel>
+                        </apex:facet>
+                    </apex:actionStatus>                
+                    <script>
+                        function closeAndRefresh(){
+                            console.log('clicked on the button');
+                            var ErrorFound = '{!ErrorFound}';
+                            if(ErrorFound == 'false'){
+                                window.top.location = '/{!$CurrentPage.parameters.id}';
+                            }
+                        }
+                    </script>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+            <apex:outputpanel id="errorMsg">
+                <apex:pagemessages escape="false"/>
+            </apex:outputpanel>
+    </apex:form>
+</apex:page>

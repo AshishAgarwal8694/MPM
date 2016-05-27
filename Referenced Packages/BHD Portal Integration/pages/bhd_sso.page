@@ -1,0 +1,43 @@
+<apex:page Controller="bhd.bhd_controller_sso" title="Portal SSO" tabStyle="bhd_sso_tab__tab">
+    <apex:outputText style="display:none" id="ajax_message" value="{!ajax_message}" styleClass="ajax_message_input" />
+    <apex:include pageName="bhd__bhd_ajax"/>
+	<apex:pagemessage severity="info" strength="1">
+        By default, users in your organization will use the same email address attached to their SalesForce account for Portal Single Sign-On. If any user in your organization uses a different email address to sign on to SalesForce and the Billian's HealthDATA Portal, use the dropdown to map the two addresses.
+        <br/><br/>
+        Remember, each Portal account can only be used by a single person at any given time.        
+    </apex:pagemessage>
+    <br/>
+	<apex:pageMessages />
+    	<apex:pageBlock title="Unavailable" rendered="{!creds==false}"> 
+           <apex:pageMessage summary="Please complete Initial Setup" severity="warning" strength="3" />
+        </apex:pageBlock>
+  		<apex:pageBlock title="Portal SSO" mode="edit" rendered="{!creds==true}">
+            <apex:pageBlockSection columns="2">
+            	<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="SalesForce User" style="font-weight:bold;"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Portal User" style="font-weight:bold;"/> 
+				</apex:pageBlockSectionItem>
+            	<apex:repeat value="{!options}" var="option">
+					    <apex:pageBlockSectionItem >
+					        <apex:outputLabel value="{!option['user']}"/> 
+					    </apex:pageBlockSectionItem>
+					    <apex:pageBlockSectionItem >					    	
+            				<apex:form >
+            					<input type="hidden" name="user" value="{!option['user']}"/>
+            					<select name="selection" class="savable">
+            						<option value="default" selected="">default</option>
+	            					<apex:repeat value="{!portal_users}" var="email">
+	            						<apex:outputText rendered="{!option['portal']==email}"><option value="{!email}" selected="selected">{!email}</option></apex:outputText>
+	            						<apex:outputText rendered="{!option['portal']!=email}"><option value="{!email}">{!email}</option></apex:outputText>
+	            					</apex:repeat>
+            					</select>
+						   		<apex:commandButton action="{!save}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+					   		</apex:form>
+					    </apex:pageBlockSectionItem>
+				</apex:repeat>	            	
+            </apex:pageBlockSection>
+            <br/><br/>
+        </apex:pageBlock>
+</apex:page>

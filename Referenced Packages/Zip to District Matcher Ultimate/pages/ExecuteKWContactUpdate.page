@@ -1,0 +1,44 @@
+<apex:page standardController="Contact" extensions="kwzd.KWD_SingleContactProcess" action="{!executeupdate}">
+<apex:sectionHeader title="KnowWho Zip to District"/>
+
+<apex:pageBlock >
+
+<apex:outputPanel id="baddresserror" rendered="{!kwdsu.showaddresserror}">
+This record does not have a complete address. Please ensure the Street, City, State and Zipcode are completed and try again.
+<br/><br/>
+<apex:outputLink value="/{!contact.Id}">Return to Record</apex:outputLink>
+</apex:outputPanel>
+
+<apex:outputPanel id="missingaddresserror" rendered="{!kwdsu.showaddressnotfounderror}">
+We were unable to find a matching address in our database. Please confirm the address details and try again.
+<br/><br/>
+<apex:outputLink value="/{!contact.Id}">Return to Record</apex:outputLink>
+</apex:outputPanel>
+
+<apex:outputPanel id="badziperror" rendered="{!kwdsu.showziperror}">
+This record does not have a valid zipcode. Please ensure the zipcode is a valid 5 digit or 9 digit zipcode (#####-####) and try again.
+<br/><br/>
+<apex:outputLink value="/{!contact.Id}">Return to Record</apex:outputLink>
+</apex:outputPanel>
+
+<apex:outputPanel id="berror" rendered="{!kwdsu.showcrediterror}">
+You do not have enough available credits to process this record. Please contact your KnowWho sales representative to purchase additional credits.<br/>
+<br/><br/>
+<apex:outputLink value="/{!contact.Id}">Return to Record</apex:outputLink>
+</apex:outputPanel>
+
+<apex:outputPanel id="bexperror" rendered="{!kwdsu.showexpiryerror}">
+Your KnowWho Zip To District Matching subscription has expired. Please contact your KnowWho sales representative to renew your subscription.<br/>
+<br/><br/>
+<apex:outputLink value="/{!contact.Id}">Return to Record</apex:outputLink>
+</apex:outputPanel>
+
+<apex:outputPanel id="bdsaveerror" rendered="{!kwdsu.showsaveerror}">
+<apex:outputText value="{!kwdsu.dbError}"/><br/>
+{!kwdsu.sc}<br/>
+<br/><br/>
+<apex:outputLink value="/{!contact.Id}">Return to Record</apex:outputLink>
+</apex:outputPanel>
+
+</apex:pageBlock>
+</apex:page>

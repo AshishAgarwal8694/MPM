@@ -1,0 +1,114 @@
+<apex:page standardController="Milestone1_Task__c" recordSetVar="varSelect" sidebar="false">
+
+<!-- for this page to work with a specific custom object, change standController="entityname" to custom object api name  
+    For example, if custom object name is Warehouse__c, change first part of the first line to standardController="warehouse__c" -->
+
+    <apex:includeScript value="{!$Resource.UtilJS}" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" />
+    
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages />
+            <apex:pageBlock >
+                Note: All modifications made on the page will be lost if Return button is clicked without clicking the Save button first. 
+            </apex:pageBlock>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+                <apex:commandButton value="Return" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!selected}" var="a" styleClass="table-sorter">
+                <apex:column headerValue="Task">
+                    <apex:inputField value="{!a.Task_Name__c}" />
+                </apex:column> 
+                <apex:column headerValue="Task #" headerClass="sortable number">
+                    <apex:inputField value="{!a.Task_Order_Number__c}" />
+                </apex:column> 
+                <apex:column headerValue="Start Day">
+                    <apex:inputField value="{!a.Start_Day__c}" />
+                </apex:column>
+                <apex:column headerValue="Duration">
+                    <apex:inputField value="{!a.Task_Duration__c}" />
+                </apex:column>
+                <apex:column headerValue="% of Milestone">
+                    <apex:inputField value="{!a.Percent_of_Phase__c}" />
+                </apex:column>
+                <apex:column headerValue="% of Project">
+                    <apex:inputField value="{!a.Percent_of_Project__c}" />
+                </apex:column>
+                <apex:column headerValue="Phase" >
+                    <apex:inputField value="{!a.Project_Milestone__c}" />
+                </apex:column> 
+                <apex:column headerValue="Assigned To">
+                    <apex:inputField value="{!a.Assigned_To__c}" />
+                </apex:column> 
+                <apex:column headerValue="Actual Start Date">
+                    <apex:inputField value="{!a.Actual_Start_Date__c}" />
+                </apex:column>
+                <apex:column headerValue="Actual End Date">
+                    <apex:inputField value="{!a.Actual_End_Date__c}" />
+                </apex:column>
+                <apex:column headerValue="Started">
+                    <apex:inputField value="{!a.Started__c}" />
+                </apex:column>
+                <apex:column headerValue="Complete">
+                    <apex:inputField value="{!a.Complete__c}" />
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <script type="text/javascript">
+        var ts = ts || {};
+        var sortStatus = {};
+        ts.getValue = function(tdElem){
+            var inputElemLst = $(tdElem).find("input:not([type='hidden']):first");
+            return inputElemLst.length ?  inputElemLst.val() : $(tdElem).text();
+        };
+        ts.handleSortClick = function(event){
+            var columnIndex = $(this).index() + 1;
+            var tdList = $('table.table-sorter tbody tr td:nth-child(' + columnIndex + ')');
+            var curValue;
+            for(var index=0;index<tdList.length;++index){
+                if( $(this).hasClass("number") ){
+                    curValue = window.parseFloat(ts.getValue(tdList[index])) || 0;
+                } else {
+                    curValue = ts.getValue(tdList[index]) || "";
+                }
+                tdList[index].sortValue = curValue;
+            }
+            if($(this).hasClass("number")){
+                if(sortStatus[columnIndex] == 1){
+                    tdList.sort(function(tdA,tdB){
+                        return  tdB.sortValue - tdA.sortValue  ;
+                    });
+                    sortStatus[columnIndex] = 0;
+                } else {
+                    tdList.sort(function(tdA,tdB){
+                        return tdA.sortValue - tdB.sortValue;
+                    });
+                    sortStatus[columnIndex] = 1;
+                }
+            } else {
+                if(sortStatus[columnIndex] == 1){
+                    tdList.sort(function(tdA,tdB){
+                        return tdA.sortValue < tdB.sortValue ? 1 : -1;
+                    });
+                    sortStatus[columnIndex] = 0;
+                } else {
+                    tdList.sort(function(tdA,tdB){
+                        return tdA.sortValue > tdB.sortValue ? 1 : -1;
+                    });
+                    sortStatus[columnIndex] = 1;
+                }
+            }
+            
+            var finalSortedRows = [];
+            for(var index=0;index<tdList.length;++index){
+                finalSortedRows.push( $( tdList[index] ).closest("tr")[0]);
+            }
+            $("table.table-sorter").append(finalSortedRows);
+        };
+        
+        $("body").on("click","table.table-sorter thead th.sortable",ts.handleSortClick);
+    </script>
+</apex:page>

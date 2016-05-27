@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.Full_Name__c</field>
+    </columns>
+    <columns>
+        <field>Contact.District__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Political_Party__c</field>
+    </columns>
+    <columns>
+        <field>KW_Relationship__c.Role__c</field>
+    </columns>
+    <columns>
+        <field>PHONE1</field>
+    </columns>
+    <columns>
+        <field>KW_Relationship__c.Account_Sort_Order__c</field>
+    </columns>
+    <description>House committees with complete rosters, selectable by committee for export.</description>
+    <filter>
+        <criteriaItems>
+            <column>CONTACT_RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Contact.KW_Member_Record</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Account.KW_Category__c</column>
+            <operator>equals</operator>
+            <value>Fed Committee</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Chamber__c</column>
+            <operator>equals</operator>
+            <value>US House</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_NAME</column>
+            <operator>notContain</operator>
+            <value>Subcommittee</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_NAME</column>
+            <operator>notContain</operator>
+            <value>Joint</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>House Committee Rosters</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactCustomEntity$KW_Relationship__c@KW_Relationship__c.Organization__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>KW_Relationship__c.Account_Sort_Order__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>LAST_ACTIVITY</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

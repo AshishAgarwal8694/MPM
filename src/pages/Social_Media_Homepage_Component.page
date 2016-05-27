@@ -1,0 +1,25 @@
+<apex:page >
+
+	<head>
+    <style>
+            
+    </style>
+        
+        
+    </head>    
+    
+    <body>
+    <div align = "center">
+        
+    <apex:panelGrid columns="2" border="0" cellpadding="7" id="theGrid" frame="none" width="100%">
+    <apex:outputLink accesskey="tab" id="mainstreetnews" tabindex="1" title="Mainstreet News" target="_blank" value="http://www.mainstreetinvestment.com/news/" ><apex:image height="72" width="60" title="Mainstreet News" url="{!URLFOR($Resource.SocialMedia, 'images/MainstreetNews.png')}"/></apex:outputLink>
+    <apex:outputLink accesskey="tab" id="linkedin" tabindex="1" title="Linkedin Mainstreet" target="_blank" value="https://www.linkedin.com/company/mainstreet?trk=jserp_company_name" ><apex:image height="60" width="60" title="LinkedIn Mainstreet" url="{!URLFOR($Resource.SocialMedia, 'images/LinkedIn1.png')}"/></apex:outputLink>
+    <apex:outputLink accesskey="tab" id="facebook" tabindex="1" title="Facebook Mainstreet" target="_blank" value="https://www.facebook.com/mainstreetinvestment/" ><apex:image height="60" width="60" title="Facebook Mainstreet" url="{!URLFOR($Resource.SocialMedia, 'images/Facebook1.png')}"/></apex:outputLink>
+    <apex:outputLink accesskey="tab" id="twitter" tabindex="1" title="Twitter Mainstreet" target="_blank" value="https://twitter.com/mainstreetcap" ><apex:image height="60" width="60" title="Twitter Mainstreet" url="{!URLFOR($Resource.SocialMedia, 'images/Twitter1.png')}"/></apex:outputLink>
+    <apex:outputLink accesskey="tab" id="instagram" tabindex="1" title="Instagram Mainstreet" target="_blank" value="https://instagram.com/mainstreetcap/" ><apex:image height="60" width="60" title="Instagram Mainstreet" url="{!URLFOR($Resource.SocialMedia, 'images/Instagram1.png')}"/></apex:outputLink>
+    <apex:outputLink accesskey="tab" id="youtube" tabindex="1" title="Youtube Mainstreet" target="_blank" value="https://www.youtube.com/channel/UCzIRLH6Q_np60OKvSs8U1zw" ><apex:image height="60" width="60" title="YouTube Mainstreet" url="{!URLFOR($Resource.SocialMedia, 'images/YouTube1.png')}"/></apex:outputLink>
+    </apex:panelGrid>
+    </div>
+        
+    </body>    
+</apex:page>

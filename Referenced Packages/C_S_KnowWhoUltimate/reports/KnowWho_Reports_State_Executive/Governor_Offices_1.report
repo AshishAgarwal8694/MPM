@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.kw__Full_Name__c</field>
+    </columns>
+    <columns>
+        <field>Contact.kw__Title__c</field>
+    </columns>
+    <columns>
+        <field>PHONE1</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <columns>
+        <field>Contact.kw__Sort_Order__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact.kw__KW_Category__c</column>
+            <operator>equals</operator>
+            <value>State Exec Office</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.kw__KW_Template__c</column>
+            <operator>equals</operator>
+            <value>ContactStateExecutiveElected</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact.kw__StateOfCoverage__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Governor Offices 1</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Contact.kw__Sort_Order__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>KW_Relationship__c.Role__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Account.KW_Category__c</field>
+    </columns>
+    <columns>
+        <field>KW_Relationship__c.Contact_Sort_Order__c</field>
+    </columns>
+    <description>Senate Members with committee assignments, sorted by state and selectable by Member for export.</description>
+    <filter>
+        <criteriaItems>
+            <column>CONTACT_RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Contact.KW_Member_Record</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Account.KW_Category__c</column>
+            <operator>equals</operator>
+            <value>Fed Committee</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Chamber__c</column>
+            <operator>equals</operator>
+            <value>US Senate</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact.District__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact.Full_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Senate Member Committee Assignments</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactCustomEntity$KW_Relationship__c@KW_Relationship__c.Organization__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>KW_Relationship__c.Contact_Sort_Order__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>LAST_ACTIVITY</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

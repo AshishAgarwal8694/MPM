@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>KnowWhoBatchFilters</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>KnowWhoBatchFilters</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>API_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>API Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Field Type</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Filter_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Filter Value</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>KnowWho_Zip_to_District__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Zip to District</label>
+        <referenceTo>Zip_to_District__c</referenceTo>
+        <relationshipLabel>Batch Filters</relationshipLabel>
+        <relationshipName>KnowWho_Batch_Filters</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Operator__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Operator</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SOQL_Filter__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>API_Name__c &amp; &quot; &quot; &amp;
+
+CASE ( Field_Type__c,
+
+&quot;INTEGER&quot;, 
+Operator__c &amp; &quot; &quot; &amp;  Filter_Value__c,
+
+&quot;DATE&quot;, 
+Operator__c &amp; &quot; &quot; &amp;  Filter_Value__c,
+
+&quot;DATETIME&quot;, 
+Operator__c &amp; &quot; &quot; &amp;  Filter_Value__c,
+
+
+&quot;BOOLEAN&quot;, 
+Operator__c &amp; &quot; &quot; &amp;  Filter_Value__c,
+
+&quot;CURRENCY&quot;, 
+Operator__c &amp; &quot; &quot; &amp;  Filter_Value__c,
+
+&quot;PERCENT&quot;, 
+Operator__c &amp; &quot; &quot; &amp;  Filter_Value__c,
+
+CASE ( Operator__c,
+
+&quot;STARTS&quot;, &quot; LIKE &apos;&quot; &amp;  SUBSTITUTE(Filter_Value__c, &quot;&apos;&quot;,&quot;\&apos;&quot;) &amp; &quot;%&apos;&quot;,
+&quot;CONTAINS&quot;, &quot; LIKE &apos;%&quot; &amp;  SUBSTITUTE(Filter_Value__c, &quot;&apos;&quot;,&quot;\&apos;&quot;)  &amp; &quot;%&apos;&quot;,
+
+Operator__c &amp; &quot; &apos;&quot; &amp;  SUBSTITUTE(Filter_Value__c, &quot;&apos;&quot;,&quot;\&apos;&quot;)  &amp; &quot;&apos;&quot;
+)
+
+)</formula>
+        <label>SOQL Filter</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Batch Filter</label>
+    <nameField>
+        <displayFormat>KWBF-{000}</displayFormat>
+        <label>Batch Filter Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Batch Filters</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Check_for_number_when_numeric_field</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( 
+
+OR(
+Field_Type__c = &quot;INTEGER&quot;,
+Field_Type__c = &quot;PERCENT&quot;,
+Field_Type__c = &quot;CURRENCY&quot;
+),
+NOT( ISNUMBER( Filter_Value__c ) )
+)</errorConditionFormula>
+        <errorMessage>You must use a valid number for a numeric field</errorMessage>
+    </validationRules>
+</CustomObject>

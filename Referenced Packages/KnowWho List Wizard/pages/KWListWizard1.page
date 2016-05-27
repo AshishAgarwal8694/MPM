@@ -1,0 +1,59 @@
+<apex:page controller="kwlw.KnowWhoListWizardCore" tabStyle="KnowWho_List_Wizard__tab">
+
+<style>
+.links {
+float: right;
+padding-right: 5px;
+font-size: 91%;
+}
+</style>
+
+<apex:sectionHeader help="https://www.knowwho.com/salesforce/help/lw_page_1.asp" title="KnowWho List Wizard" subtitle="Step 1 of 3"></apex:sectionHeader>
+
+<apex:form >
+<apex:actionFunction name="getSavedQueryRecord" action="{!getSavedQueryRecord}" rerender="sLists" status="myStatus"/>
+
+<apex:pageBlock id="sLists">
+
+<apex:pageBlockButtons >
+<apex:commandButton action="{!page2}" value="Next Step"/>
+<apex:commandButton id="deleteButton" action="{!deleteSavedQuery}"  value="Delete Saved List" disabled="{!IF(SelectedQuery == 'None', TRUE, FALSE)}"/>
+</apex:pageBlockButtons>
+
+<apex:pageBlockSection columns="1">
+<apex:pageBlockSectionItem helpText="Select a saved list to use it now, create a new list with the saved list as a starter or to delete it." >
+
+<apex:outputLabel >Select Saved List</apex:outputLabel>
+<apex:selectList size="1" value="{!SelectedQuery}" disabled="{!IF(sListType == 'None', FALSE, TRUE)}">
+<apex:actionSupport action="{!getSavedQueryRecord}" event="onchange" reRender="sLists"/>
+<apex:selectOptions value="{!SavedQueries}"/>
+</apex:selectList>
+</apex:pageBlockSectionItem>
+<apex:pageBlockSectionItem rendered="{!IF(SelectedQuery == 'None', FALSE, TRUE)}">
+<apex:outputLabel ></apex:outputLabel>
+{!selectedlistquery.kwlw__List_Description__c}
+</apex:pageBlockSectionItem>
+</apex:pageBlockSection>
+
+<apex:pageBlockSection columns="1" >
+<apex:pageBlockSectionItem helpText="Select the type of contacts to use in creating a new list."  >
+
+<apex:outputLabel >Select New List Type</apex:outputLabel>
+<apex:selectList size="1" value="{!sListType}" disabled="{!IF(SelectedQuery == 'None', FALSE, TRUE)}">
+<apex:actionSupport event="onchange" reRender="sLists"/>
+<apex:selectOptions value="{!ListType}"/>
+</apex:selectList>
+
+</apex:pageBlockSectionItem>
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+
+<apex:actionFunction name="UpdateData2">
+
+</apex:actionFunction>                                 
+
+  
+
+</apex:form>
+</apex:page>

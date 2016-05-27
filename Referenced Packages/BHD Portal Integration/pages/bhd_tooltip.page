@@ -1,0 +1,28 @@
+<apex:page >
+	<style type="text/css">
+		.bhd_tooltip{
+			display: inline-block;
+			margin-left: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+		bhd_j(document).ready(
+			function(){
+				bhd_j('.bhd_tooltip_hook').each(
+					function(){
+						var t = bhd_j(this)
+						if(t.hasClass('bhd_tooltip_link')){
+							var icon = 'ui-icon-link'
+						} else {
+							var icon = 'ui-icon-info'
+						}
+						var title = t.attr('title')
+						var s = bhd_j('<span class="bhd_tooltip ui-icon ' + icon + '"></span').attr('title',title)
+						t.removeAttr('title').after(s)
+					}
+				)
+				bhd_j('.bhd_tooltip').tooltip()
+			}
+		)
+	</script>
+</apex:page>

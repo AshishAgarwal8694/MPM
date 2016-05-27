@@ -1,0 +1,77 @@
+<apex:page id="page" title="Attachment Detail" standardController="Custom_Attachment__c" extensions="AttachmentDetailController">
+
+	<apex:pageMessages id="messages"/>
+
+	<apex:outputPanel id="pageContainer" rendered="{!!error}">
+	
+		<apex:sectionHeader title="{!customAttachmentParent} Attachment" subtitle="{!customAttachment.Name}"/>
+	
+		<apex:form id="attchFrm">
+		
+			<apex:actionFunction action="{!handleAttachmentView}" name="onAttachmentClick" rerender="nada"/>
+		
+			<apex:pageBlock id="attchDetail" title="Attachment Detail" mode="{!IF(editMode, 'edit', 'maindetail')}">
+			
+				<apex:pageBlockButtons location="both">
+					<apex:commandButton action="{!editCustomAttachment}" value="Edit" rendered="{!!editMode}" rerender="pageContainer"/>
+					<apex:commandButton action="{!deleteCustomAttachment}" rendered="{!!editMode && recordAccess.HasDeleteAccess}" value="Delete"/>
+					<apex:commandButton action="{!saveCustomAttachment}" value="Save" rendered="{!editMode}"/>
+					<apex:commandButton action="{!cancelEdit}" value="Cancel" rendered="{!editMode}"/>
+				</apex:pageBlockButtons>
+
+				<apex:pageBlockSection title="" columns="2" showHeader="false" collapsible="false">
+
+					<apex:outputField value="{!attachment.Name}" rendered="{!!editmode}">
+						<br/>
+						<apex:outputLink id="viewLink" value="/servlet/servlet.FileDownload?file={!attachment.Id}" target="_blank" onclick="onAttachmentClick();">View</apex:outputLink>
+					</apex:outputField>
+					
+					<apex:pageBlockSectionItem rendered="{!editmode}">
+						<apex:outputLabel value="File" for="fileInput"/>
+						<apex:inputFile id="fileInput" value="{!attachment.Body}" filename="{!attachment.Name}" required="true"/>
+					</apex:pageBlockSectionItem>
+
+					<apex:outputField value="{!customAttachment.Investment__c}" rendered="{!customAttachment.Investment__c != null}"/>
+					
+					<apex:outputField value="{!customAttachment.Property__c}" rendered="{!customAttachment.Property__c != null}"/>
+					
+					<apex:pageBlockSectionItem rendered="{!!editmode}">
+						<apex:outputLabel value="Size" for="size"/>
+						<apex:outputText id="size" value="{!attachment.BodyLength/1000} KB"/>
+					</apex:pageBlockSectionItem>
+				
+				</apex:pageBlockSection>
+				
+				<br/>
+				<br/>
+				
+				<apex:pageBlockSection title="" columns="1" showHeader="false" collapsible="false">
+					<apex:outputField value="{!attachment.Description}" rendered="{!!editMode}"/>
+					<apex:inputField value="{!attachment.Description}" rendered="{!editMode}"/>
+				</apex:pageBlockSection>
+				
+				<br/>
+				<br/>
+				
+				<apex:pageBlockSection title="System Information" columns="2" showHeader="true" collapsible="false">
+					
+					<apex:outputField value="{!customAttachment.CreatedById}"/>
+					
+					<apex:outputField value="{!customAttachment.LastModifiedById}"/>
+					
+					<apex:outputField value="{!customAttachment.CreatedDate}"/>
+					
+					<apex:outputField value="{!customAttachment.LastModifiedDate}"/>
+					
+				</apex:pageBlockSection>
+				
+			</apex:pageBlock>
+	
+		</apex:form>
+		
+		<apex:relatedList list="Community_Views__r" rendered="{!!isCommunityUser}">
+			<apex:facet name="header"><h3 style="font-size:1.2em;padding:0px 5px;">Community Views</h3></apex:facet>
+		</apex:relatedList>
+	
+	</apex:outputPanel>
+</apex:page>

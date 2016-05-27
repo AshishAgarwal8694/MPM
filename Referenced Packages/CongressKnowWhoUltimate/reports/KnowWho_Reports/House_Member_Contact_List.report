@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>SITE</field>
+    </columns>
+    <columns>
+        <field>Account.District__c</field>
+    </columns>
+    <columns>
+        <field>PHONE1</field>
+    </columns>
+    <columns>
+        <field>PHONE2</field>
+    </columns>
+    <columns>
+        <field>URL</field>
+    </columns>
+    <description>House Members with capitol office phone and fax numbers, and websites.</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.KW_Category__c</column>
+            <operator>equals</operator>
+            <value>Fed Legislator Office</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.KW_Address__c</column>
+            <operator>equals</operator>
+            <value>Fed Capitol Office</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Chamber__c</column>
+            <operator>equals</operator>
+            <value>US House</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>House Member Contact List</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Account.District__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2009-09-05</startDate>
+    </timeFrameFilter>
+</Report>

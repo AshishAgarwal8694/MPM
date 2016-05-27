@@ -1,0 +1,223 @@
+<apex:page title="FAQs" tabStyle="bhd_help_tab__tab">
+<apex:pageBlock title="FAQs"> 	
+	<br/><br/>
+	<p style="font-weight:bold;font-size:120%;text-align:center;"><a target="_blank" href="https://www.billiansonline.com/Billian's HealthDATA SalesForce.com App Exchange Guide.pptx">Integration Guide</a></p>
+	<p style="font-weight:bold;font-size:120%;text-align:center;"><a target="_blank" href="https://www.billiansonline.com/BHD Portal SalesForce Integration App Setup Checklist.pdf">Setup Checklist</a></p>
+	
+	<div>
+	<p><a href="#q0">What's new in this version?</a></p>
+	<p><a href="#q1">How does a "sync" work? How does it know which records to update?</a></p>
+	<p><a href="#q2">I don't think the sync is working. Why?</a></p>
+	<p><a href="#q3">Will Billian's HealthDATA overwrite my data?</a></p>
+	<p><a href="#q4">How do I add accounts, contacts, or leads to SalesForce.com?</a></p>
+	<p><a href="#q5">How are accounts/contacts/leads assigned?</a></p>
+	<p><a href="#q6">Tell me about hierarchy.</a></p>
+	<p><a href="#q7">What does a "match" do?</a></p>
+	<p><a href="#q8">How do I avoid creating duplicates in SalesForce.com?</a></p>
+	<p><a href="#q9">I'm trying to setup mapping but I can't find a certain field.</a></p>
+	<p><a href="#q10">I don't see a place to map fields for contacts or leads.</a></p>
+	<p><a href="#q11">Setting the app up is beyond my comfort zone. Can you help?</a></p>
+	<p><a href="#q12">The app isn't a good fit for me. Do you have other options?</a></p>
+	<p><a href="#q13">Does the app have any side-effects?</a></p>
+	<p><a href="#q14">Can the app do...?</a></p>
+	</div>
+	<br/>
+	
+  <hr/><br/><br/>
+  <div>
+  	<a name="q0"></a>
+  	<b>What's new in this version?</b>
+  	<p>Basic Setup and Summary Tab</p>
+	<ul>
+		<li>The tab has been reorganized.</li>
+	</ul>
+	<p>Mapping Tab - Accounts Sub-Tab</p>
+	<ul>
+		<li>The info icon next to "Select Market Segments" indicates how many market segments have been mapped/are available to map.</li>
+		<li>Better spacing to improve the mapping process.</li>
+		<li>Fields are now organized into three types: 
+			<ol>
+				<li>Required Fields are fields required in SalesForce that do not have default values set (Add to SalesForce will not function)</li>
+				<li>Eligible Fields are fields that can be mapped</li>
+				<li>Ineligible Fields are fields that cannot be updated due to permissions.</li>
+			</ol>
+		</li>
+		<li>A link to the Data Dictionary in the Billian's HealthDATA Portal is included at the top of the tab, in addition to icons next to each field name to indicate its type in SalesForce.com.</li>
+	</ul>
+	<p>Sync Management Tab</p>
+	<ul>
+		<li>Statistics included in the yellow info box have been removed as the SalesForce API used to calculate changes proved inconsistent.</li>
+		<li>Include Hierarchy allows you to turn on/off the sync's function to link records to their parent account in SalesForce.com based on Billian's corporate owner designation.</li>
+		<li>Mirror Account Info in Contacts, if checked, will update a contacts phone and address to match their related account.</li>
+	</ul>
+	<p>Match Tab</p>
+	<ul>
+		<li>The info box has been expanded, emphasizing the need to review results after running a match and before running a sync.</li>
+		<li>Match Destination allows the user to choose whether they want the BHD Directory Code updated automatically based on match results or exported to csv for review.</li>
+		<li>Rematch Existing Matches attempts to match all accounts, not just those that do not currently have a BHD Directory Code populated.</li>
+		<li>An option to match on BHD Directory Code has been added and match options for HIN and GLN have been deprecated.</li>
+	</ul>
+	<p>FAQs Tab</p>
+	<ul>
+		<li>The tab you're reading is brand spankin' new and includes a link to download the Integration Guide as well as answers to frequently asked questions and a good natured attempt at humor.</li>
+	</ul>
+	<p>Fields</p>
+	<ul>
+		<li>Active in BHD fields have been added to Contacts and Leads. Like the field for accounts, this field can be updated by your SalesForce.com users to stop syncing the record with Billian or updated through a sync to indicate that a contact (or contact associated with a lead) is no longer in the Billian's HealthDATA Portal.</li>
+	</ul>
+	<p>Billian's HealthDATA Portal</p>
+	<ul>
+		<li>Portal Administrators can navigate to My Account> User Manager> Resources> SF.com Integration Setup/Documentation to select a Saved Report that automatically adds new Accounts to SalesForce.com during a sync for any records returned in the report that are not currently in SalesForce.com (missing BHD Directory Codes).</li>
+	</ul>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q1"></a>
+  	<b>How does a "sync" work? How does it know which records to update?</b>
+  	<p>When you run a manual or scheduled sync, the default settings trigger two actions:</p>
+  	<ol>
+  		<li>Any records pushed from the Billian's HealthDATA Portal (https://www.billianonline.com) when users select "add to salesforce" are added to your SalesForce.com instance as requested as accounts (with or without contacts) or as leads. Records that already exist in SalesForce.com are omitted.</li>
+  		<li>Any accounts in your SalesForce.com instance that are populated with their respective BHD Directory Code and set to "Active in BHD" are updated. Updates are limited to only the fields you choose using the "mapping" tool.</li>
+  	</ol>
+  	<p>Modifiers to the default action include options to:</p>
+  	<ol>
+  		<li>Include or exclude hierarchy, which updates the parent account in SalesForce.com to match the designated Corporate Owner in the Billian's HealthDATA Portal.</li>
+  		<li>Sync contacts, which triggers existing contacts populated with their respective BHD Contact ID to be updated and new contacts to be added.</li>
+  		<li>Reassign Contact Owner to Account Owner, which will automatically assign the contact owner for a lead to match that of its related account.</li>
+  		<li>Mirror Account Info in Contacts updates phone and address for contacts to match their related account.</li>
+  		<li>Sync leads, which triggers existing leads populated with their respective BHD Directory Code &amp; BHD Lead ID to be updated and any records not already accounted for in Accounts/Contacts to be added as leads. Careful, this can create a lot of leads!</li>
+  		<li>Debug Mode determines whether a sync is allowed to proceed if a single record fails. Turning on this mode provides more information in Setup> Monitoring> Apex Jobs that can help you debug failures during a sync.</li>
+  	</ol>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q2"></a>
+  	<b>I don't think the sync is working. Why?</b>
+  	<p>The most common issues are due to customizations in your instance of SalesForce.com. Typically these are related to field-level security, required field settings, validation rules, and/or triggers. We've tried to make the setup identify these issues for you, providing a Debug Mode on the Sync Management tab, and you can always check Setup> Monitoring> Apex Jobs for logs about what might be preventing a job to process as expected. And of course, you can always contact us for support in diagnosing.</p>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>  	
+  	<a name="q3"></a>
+  	<b>Will Billian's HealthDATA overwrite my data?</b>
+  	<p>If you tell us to, yes. When a sync runs, only system default fields and fields that have been mapped using the mapping tool are updated, and updates are only limited to records that have a valid value for their object’s respective unique Billian's ID. If you want to avoid values being overwritten:</p>
+  	<ol>
+  		<li>Accounts - Ensure the BHD Directory Code is not populated for a specific record, don't map any fields, and/or turn Active in BHD off. Some customers like to create separate (and sometimes duplicate fields) in SalesForce to house Billian's data and protect data that might be entered from another source.  These fields can then be organized into a separate section on page layouts.</li>
+  		<li>Contacts - Ensure the BHD Contact ID is not populated for a specific record and/or deselect the Active in BHD field.</li>
+  		<li>Leads - Ensure the BHD Lead ID is not populated for a specific record and/or deselect the Active in BHD field.</li>
+  	</ol>
+  	<p>A note about contacts and leads, Billian's HealthDATA utilizes SalesForce default fields like email. If a SalesForce user alters a value for one of these default fields but the value is not changed in the Billian's HealthDATA Portal, that value would potentially be overwritten. If a SalesForce user feels that a change should be made to a specific field or record in the Billian’s HealthDATA Portal, they can use the "Report Issue to BHD" button in SalesForce to let us know. We'll research and/or validate the request and notify the user of results.</p>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q4"></a>
+  	<b>How do I add accounts, contacts, or leads to SalesForce.com?</b>
+  	<p>The sync itself doesn't automatically add anything to SalesForce.com without being told to do so, just like any good husband. Any Billian's HealthDATA Portal user can add records to SalesForce.com by using the "add to salesforce" buttons located throughout the Portal:</p>
+  	<ol>
+  		<li>After building a report and viewing results, click the "add to salesforce" button in the options box located beneath the report viewer.</li>
+  		<li>When viewing an individual record, click the "add to salesforce" button located beneath the information box on each tab.</li>
+  		<li>When viewing the employees’ tab of an individual record, click the SalesForce icon to add the selected contact.</li>
+  		<li>Admininstrator users in the Billian's HealthDATA Portal can assign a saved report from which any records that have an unmatched BHD Directory Code in SalesForce.com will be added as new account.</li>
+  	</ol>
+  	<p>Note that you can choose to add selected records as Accounts (with or without contacts) or Leads (only if contacts are included). Regardless of how records are added, a sync must be completed - either manual or scheduled - before records are inserted into SalesForce.com. The "add to salesforce" function can be disabled by your organization's administrator in the Billian's HealthDATA Portal by navigating to My Account> User Manager> Resources> SF.com Integration Setup/Documentation.</p>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q5"></a>
+  	<b>How are accounts/contacts/leads assigned?</b>
+  	<p>When new records are added:</p>
+  	<ol>
+  		<li>Accounts are added with account owner assigned to the default for your organization, typically the system administrator that setup the integration.</li>
+  		<li>Contacts are added either to the default owner described above or to the account owner, depending on if "Reassign Contact.Owner to Account.Owner" on the sync management tab is set to yes or no.</li>
+  		<li>Leads are added to the default owner described above unless you have lead assignment rules in place.</li>
+  	</ol>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q6"></a>
+  	<b>Tell me about hierarchy.</b>
+  	<p>The integration allows SalesForce.com's default hierarchy for accounts. For accounts with a valid BHD Directory Code, the system scans SalesForce for their related parent or children using their respective BHD Directory Code and will apply any updates automatically. Records are considered parents if they are set as the Corporate Owner of other facilities in the Billian's HealthDATA Portal.</p>
+  	<p>To turn off hierarchy, select no for "sync hierarchy" on the sync management tab.</p>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q7"></a>
+  	<b>What does a "match" do?</b>
+  	<p>The matching tool provides you with the ability to identify accounts that already exist in your SalesForce.com instance and align them with their respective match in the Billian's HealthDATA Portal using the power of IBM's "supercomputer," Watson! Well, not quite.</p>
+  	<p>The tool is actually a relatively simple tool that does indeed help you figure out which accounts have peers in the Billian's HealthDATA Portal, but it does require a little effort on your part. Each of the fields suggested on the left-hand side of the page are fields that can be used as either unique or common identifiers. For each field, you have the ability to link it to a field of a compatible type on the account object of your SalesForce instance. For example, "Phone Number" would link to your account's "Phone" field and "URL" to your account's "Website" field. When you click "Begin Match," each of your account's selected values are compared to values in the Billian's HealthDATA Portal. Only records that have unique values in both your SalesForce.com instance and the Billian's HealthDATA Portal are eligible to be used for matching.</p>
+ 	<p>Since the matching process is not always an exact science, you have two options:</p> 
+  	<ol>
+  		<li>The match can run and automatically append the BHD Directory Code to account records it deems a match, or:</li>
+  		<li>You can choose to have the match generate a file that you can use for review, which may then be used to update records using Data Loader or the Import tools in SalesForce.com.</li>
+  	</ol>
+  	<p>Again, the "match" is not an exact science. It is always recommended that you review matched results prior to running a sync, otherwise false-positives could occur that would cause records to be updated with the incorrect information. Still, it's a big time saver, can help prevent duplicates, and pretty awesome!</p>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q8"></a>
+  	<b>How do I avoid creating duplicates in SalesForce.com?</b>
+  	<p>Since the dawn of man, we've struggled with how to avoid duplicates. Unfortunately, there's no silver bullet. Actually, there's not even a blunt object. First, let's consider how Billian's HealthDATA works to avoid duplicates:</p>
+  	<ol>
+  		<li>Accounts are considered unique based on the BHD Directory Code field. So, if you have an account named Mayo Clinic but it isn't populated with the correct BHD Directory Code, a duplicate account could be added using the "add to salesforce" buttons in the Billian's HealthDATA Portal.</li>
+  		<li>Contacts are considered unique based on the BHD Contact ID field. So, if you have a contact named John Doe but his BHD Contact ID isn't populated with the correct value, a duplicate could be added using either the "Sync Contacts" option or by clicking "add to salesforce" in the Billian's HealthDATA Portal.</li>
+  		<li>Leads are considered unique based on the BHD Lead ID field, which is really just a BHD contact ID with a fancy name. So, if you have a lead named Jane Doe but her BHD Lead ID isn't populated with the correct value, a duplicate could be added using either the "Sync Leads" option or by clicking "add to salesforce" in the Billian's HealthDATA Portal.</li>
+  	</ol>
+  	<p>There are tools to avoid duplicates built within SalesForce.com and a cornucopia of tools available in the SalesForce AppExchange marketplace.</p>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q9"></a>
+  	<b>I'm trying to setup mapping but I can't find a certain field.</b>
+  	<p>The most likely cause of this is simply a field type issue. Much like fitting a marshmallow into a keyhole, SalesForce.com fields cannot be mapped to Billian's HealthDATA Portal fields with incompatible field types. For example, a field setup in SalesForce.com as a number field cannot be mapped to a text field in Billian's. Please check the Data Dictionary in the Billian's HealthDATA Portal to view fields available to you and their type. Find it by navigating to Help> Data Dictionary and be sure to limit your selections to "Show Only Portal Fields I'm Subscribed To."</p>
+  	<p>By default, the following fields are mapped on the account object: BHD Directory Code, Name, Hierarchy (optional), Description (for "add to salesforce"), and Account Source (for "add to salesforce").</p>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q10"></a>
+  	<b>I don't see a place to map fields for contacts or leads.</b>
+  	<p>Contacts and leads are limited to default SalesForce.com fields and fields creating by the app to make the integration less complicated (you're welcome). The default fields for each are:</p>
+  	<ol>
+  		<li>Contacts - BHD Contact Id, First Name, Last Name, Salutation, Title, Email, Description, and Lead Source</li>
+  		<li>Leads - BHD Directory Code, BHD Lead Id, Company, First Name, Last Name, Salutation, Title, Email, Description, Lead Source, Phone, Fax, Street, City, State, Postal Code, Annual Revenue, Website, and Number of Employees</li>
+  	</ol>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q11"></a>
+  	<b>Setting the app up is beyond my comfort zone. Can you help?</b>
+  	<p>Yes! We're always available to answer questions, but if you need someone to do the setup for you we do have fee-based services available. Just contact us and we'll figure out what fits your needs best.</p>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q12"></a>
+  	<b>The app isn't a good fit for me. Do you have other options?</b>
+  	<p>Yes! We offer an Open API for the Billian's HealthDATA Portal. Though not SalesForce specific, it is the most flexible way to access and work with our data. Warning: if you're not a nerd that understands writing code or don't have access to one, this option probably isn't for you.</p>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q13"></a>
+  	<b>Does the app have any side-effects?</b>
+  	<p>There are no known side-effects for SalesForce customers, though developers have reported developing nervous tics and vivid dreams about being chased by a killer polar bear named SalesForce. As with most software, you should not use the Billian's HealthDATA Portal Integration app while operating heavy machinery. However, Billian's HealthDATA has done extensive testing internally and with our lab rats (i.e., beta testing customers that we love exponentially) so you should feel confident! Another however, if you do experience any side-effects, please tell Billian's HealthDATA so we can work with you to diagnose any bugs or gremlins.</p>
+  </div>
+  
+  <hr/><br/><br/>
+  <div>
+  	<a name="q14"></a>
+  	<b>Can the app do...?</b>
+  	<p>If you're unsure, feel free to contact us and we'll help you figure it out. Also, ideas for future development are always welcome. We don't believe the app can end world hunger but we are still trying.</p>
+  </div>
+  <hr/><br/><br/>
+</apex:pageBlock>
+</apex:page>

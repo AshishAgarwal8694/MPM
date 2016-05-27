@@ -1,0 +1,173 @@
+<apex:page controller="kwlw.KnowWhoListWizardCore" tabStyle="KnowWho_List_Wizard__tab">
+
+<apex:includeScript value="{!URLFOR($Resource.kwlw__jquerykw, 'js/jquery-1.7.1.min.js')}"/>
+
+<script type="text/javascript">
+       var j$ = jQuery.noConflict();
+    
+          j$(document).ready(function(){
+    
+                 j$('img[id*="page2pblocksection"]').each(function() {
+                    twistSection(this);
+                    });
+          });     
+          
+      </script>         
+
+<apex:sectionHeader help="https://www.knowwho.com/salesforce/help/lw_page_2.asp" title="KnowWho List Wizard" subtitle="Step 2 of 3"/>
+
+<apex:form id="page2form">
+
+<apex:pageBlock id="page2pblock">
+<apex:pageBlockButtons >
+<apex:commandButton action="{!page1}" value="Go Back"/>
+<apex:commandButton action="{!page3}" value="Next Step"/>
+</apex:pageBlockButtons>
+
+<apex:pageBlockSection columns="1" >
+<apex:pageBlockSectionItem helpText="Select the address type you want to use in this list.">
+
+<apex:outputLabel >{!mLabels['AddressType']}</apex:outputLabel>
+<apex:selectList size="1" value="{!sAddressType}">
+<apex:selectOptions value="{!AddressType}"/>
+</apex:selectList>
+</apex:pageBlockSectionItem>
+
+<apex:pageBlockSectionItem helpText="Select the gender you want to use in this list.">
+
+<apex:outputLabel >{!mLabels['Gender']}</apex:outputLabel>
+<apex:selectList size="1" value="{!sGender}">
+<apex:selectOptions value="{!Gender}"/>
+</apex:selectList>
+
+</apex:pageBlockSectionItem>
+</apex:pageBlockSection>
+
+<apex:pageBlockSection id="page2pblocksectionstates"  columns="1" title="{!mLabels['State']}" rendered="{!bStateDisplay}">
+<apex:outputText >Check the state or states represented by the Members or the staffers' Member you want to use in this list.</apex:outputText>
+<apex:pageBlockTable value="{!States.selectablelist}" var="s" columnsWidth="7%,90%">
+
+<apex:column >
+<apex:facet name="header">Include?</apex:facet>
+<apex:inputCheckbox value="{!s.bselected}"/>
+</apex:column>
+
+<apex:column >
+<apex:facet name="header">State</apex:facet>
+{!s.shortcode}
+</apex:column>
+
+</apex:pageblockTable>
+</apex:pageBlockSection>
+
+<apex:pageBlockSection id="page2pblocksectionparty" columns="1" title="{!mLabels['Party']}" rendered="{!bPartyDisplay}">
+<apex:outputText >Check the political party or parties of the Members or the staffers' Member you want to use in this list.</apex:outputText>
+<apex:pageBlockTable value="{!Party.selectablelist}" var="p"  columnsWidth="7%,90%">
+
+<apex:column >
+<apex:facet name="header">Include?</apex:facet>
+<apex:inputCheckbox value="{!p.bselected}"/>
+</apex:column>
+
+<apex:column >
+<apex:facet name="header">Party</apex:facet>
+{!p.shortcode}
+</apex:column>
+
+</apex:pageblockTable>
+</apex:pageBlockSection>
+
+<apex:pageBlockSection id="page2pblocksectioncommittees" columns="1" title="{!mLabels['Committee']}">
+<apex:outputText >{!sCommitteeText[0]}</apex:outputText>
+<apex:pageBlockTable value="{!Committees.selectablelist}" var="c"  columnsWidth="7%,15%,78%">
+
+<apex:column >
+<apex:facet name="header">Include?</apex:facet>
+<apex:inputCheckbox value="{!c.bselected}"/>
+</apex:column>
+
+<apex:column >
+<apex:facet name="header">{!sCommitteeText[1]}</apex:facet>
+{!c.svalue}
+</apex:column>
+
+<apex:column >
+<apex:facet name="header">{!sCommitteeText[2]}</apex:facet>
+{!c.shortcode}
+</apex:column>
+
+</apex:pageblockTable>
+</apex:pageBlockSection>
+
+<apex:pageBlockSection id="page2pblocksectioncomitteeparty" columns="1" title="{!mLabels['Party']}" rendered="{!bCommitteePartyDisplay}">
+<apex:outputText >Check the political party affiliation or affiliations of the staffers you want to use in this list.</apex:outputText>
+<apex:pageBlockTable value="{!Category.selectablelist}" var="pc"  columnsWidth="7%,90%">
+
+<apex:column >
+<apex:facet name="header">Include?</apex:facet>
+<apex:inputCheckbox value="{!pc.bselected}"/>
+</apex:column>
+
+<apex:column >
+<apex:facet name="header">Party</apex:facet>
+{!pc.shortcode}
+</apex:column>
+
+</apex:pageblockTable>
+</apex:pageBlockSection>
+
+<apex:outputPanel rendered="{!bStafferList}">
+
+<apex:pageBlockSection id="page2pblocksectionissues" columns="1" title="{!mLabels['Issue']}">
+<apex:outputText >Check the issue or issues covered by the staffers you want to use in this list.</apex:outputText>
+<apex:pageBlockTable value="{!kwtax.Issues.selectablelist}" var="i" columnsWidth="7%,15%,78%">
+
+<apex:column >
+<apex:facet name="header">Include?</apex:facet>
+<apex:inputCheckbox value="{!i.bselected}"/>
+</apex:column>
+
+<apex:column >
+<apex:facet name="header">Issue Code</apex:facet>
+{!i.svalue}
+</apex:column>
+
+<apex:column >
+<apex:facet name="header">Issue Description</apex:facet>
+{!i.shortcode}
+</apex:column>
+
+
+</apex:pageblockTable>
+</apex:pageBlockSection>
+
+<apex:pageBlockSection id="page2pblocksectionroles" columns="1" title="{!mLabels['Role']}">
+<apex:outputText >Check the position or positions of the staffers you want to use in this list.</apex:outputText>
+<apex:pageBlockTable value="{!kwtax.Roles.selectablelist}" var="r" columnsWidth="7%,15%,78%">
+
+<apex:column >
+<apex:facet name="header">Include?</apex:facet>
+<apex:inputCheckbox value="{!r.bselected}"/>
+</apex:column>
+
+<apex:column >
+<apex:facet name="header">Role Code</apex:facet>
+{!r.svalue}
+</apex:column>
+
+<apex:column >
+<apex:facet name="header">Role Description</apex:facet>
+{!r.shortcode}
+</apex:column>
+
+
+</apex:pageblockTable>
+</apex:pageBlockSection>
+
+</apex:outputPanel>
+
+</apex:pageBlock>
+
+</apex:form>
+
+</apex:page>

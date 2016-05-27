@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>DefHC_Address1__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Address 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_Address__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_AffiliationsACO__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC ACO Affiliations</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DefHC_AffiliationsGPO__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC GPO/Pharm/RPC Affiliations</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DefHC_AvgDailyCensus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Avg. Daily Census</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_AvgLengthOfStay__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Avg. Length of Stay</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_CashOnHand__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Cash on Hand</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_DateCreated__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Date Created</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_DaysCashOnHand__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Days Cash On Hand</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_EMR_Vendor_Ambulatory__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC EMR Vendor Ambulatory</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_EMR_Vendor_Inpatient__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC EMR Vendor Inpatient</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_FinancialDataDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Financial Data update date</description>
+        <externalId>false</externalId>
+        <label>DHC Financial Data Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_FirmType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Firm Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_HIEAffiliations__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC HIE Affiliations</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DefHC_HQCity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_HospitalID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Definitive ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_Hospital_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>DefinitiveHC Hospital Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Hospital Name</inlineHelpText>
+        <label>DHC Hospital Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_Hospital_Profile__c</fullName>
+        <deprecated>false</deprecated>
+        <description>DefinitiveHC Hospital Profile</description>
+        <externalId>false</externalId>
+        <inlineHelpText>DefinitiveHC Hospital Profile</inlineHelpText>
+        <label>DHC Provider Profile</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_Hospital_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Hospital Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_MeaningfulUseStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Meaningful Use Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_MedicareProviderNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Medicare Provider Number</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_NetMedicareRevenue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Net Medicare Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_NetPatientRev__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Net Patient Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_NetworkID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Definitive HC Network ID</description>
+        <externalId>false</externalId>
+        <label>DHC Network ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_Network_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the network to which the hospital belongs to.</description>
+        <externalId>false</externalId>
+        <label>DHC Network Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_NumAffiliatedPhysicians__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC # of Affiliated Physicians</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_NumBeds__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of Beds in the hospital</description>
+        <externalId>false</externalId>
+        <label>DHC # of Beds</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_NumDischarges__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC # of Discharges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_NumEmployees__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC # of Employees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_NumHospitalsInNetwork__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC # of Hospitals in Network</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_NumMedicareBeds__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC # of Medicare Beds</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_NumOperatingRooms__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC # of Operating Rooms</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_OperatingIncome__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Operating Income</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_OwnershipStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Ownership Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_Parent_NetworkID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Parent Network ID</description>
+        <externalId>false</externalId>
+        <label>DHC Parent Network ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_Parent_Network_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the Parent Network</description>
+        <externalId>false</externalId>
+        <label>DHC Parent Network Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_PayorMixPctMedicaid__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Payor Mix % Medicaid</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_PayorMixPctMedicare__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Payor Mix % Medicare</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_PayorMixPctPrivateSelf__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Payor Mix % Private/Self/Other</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_Phone__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_State__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC State</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_SyncTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Last time the account data was synced with DefHC database.</description>
+        <externalId>false</externalId>
+        <label>DHC Sync Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_TotalMedicareCharges__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Total Medicare Charges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_Website__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Provider Website</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_ZipCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC Zip Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>DefHC_Attached_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>DefHC_HospitalID__c</columns>
+        <columns>DefHC_Hospital_Name__c</columns>
+        <columns>DefHC_Hospital_Type__c</columns>
+        <columns>DefHC_Network_Name__c</columns>
+        <columns>DefHC_Parent_Network_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>DefHC_HospitalID__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </filters>
+        <label>DefHC Attached Accounts</label>
+    </listViews>
+    <webLinks>
+        <fullName>Billing</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Billing</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>http://www.genwatt.com/genwatt/billing.htm?actname={!Account.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Import_DHC_Data</fullName>
+        <availability>online</availability>
+        <description>Provides access to functions and data from Definitive Healthcare.</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Import DHC Data</masterLabel>
+        <openType>sidebar</openType>
+        <page>DefinitiveLauncher</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>DefHC_ExecutiveID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Id of the executive in Definitive HC system.</description>
+        <externalId>false</externalId>
+        <label>DHC Executive ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_HospitalID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Definitive hospital ID to which the executive belongs</description>
+        <externalId>false</externalId>
+        <label>Definitive ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DefHC_Is_Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>True if executive record is still active in DefinitiveHC database</description>
+        <externalId>false</externalId>
+        <label>DHC Is Active</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DefHC_LinkedInProfile__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DHC LinkedIn Profile</label>
+        <length>2200</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DefHC_Record_Changed_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which DefHC Executive record was updated.</description>
+        <externalId>false</externalId>
+        <label>DHC Record Changed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+</CustomObject>

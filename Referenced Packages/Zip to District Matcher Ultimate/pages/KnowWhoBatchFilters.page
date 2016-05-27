@@ -1,0 +1,53 @@
+<apex:page StandardController="kwzd__KnowWho_Batch_Filters__c" extensions="kwzd.KWD_FilterController">
+<apex:sectionHeader title="Add or Edit Batch Filter" help="https://www.knowwho.com/salesforce/help/zdm_filter.asp" />
+
+<apex:form >
+<apex:outputPanel rendered="false">
+{!kwzd__KnowWho_Batch_Filters__c.kwzd__API_Name__c}
+{!kwzd__KnowWho_Batch_Filters__c.kwzd__Operator__c}
+{!kwzd__KnowWho_Batch_Filters__c.kwzd__KnowWho_Zip_to_District__c}
+{!kwzd__KnowWho_Batch_Filters__c.kwzd__Field_Type__c}
+</apex:outputPanel>
+<apex:pageBlock id="filters" >
+<apex:messages />
+
+<apex:pageBlockSection columns="1">
+
+<apex:pageBlockSectionItem helpText="{!$ObjectType.kwzd__KnowWho_Batch_Filters__c.Fields.kwzd__API_Name__c.inlineHelpText}">
+<apex:outputLabel >Select Field</apex:outputLabel>
+<apex:selectList size="1" value="{!cfield}">
+<apex:selectOptions value="{!afields}"/>
+<apex:actionSupport event="onchange" action="{!refresh}" rerender="filters" status="cvalues"/>
+</apex:selectList>
+</apex:pageBlockSectionItem>
+
+<apex:pageBlockSectionItem helpText="{!$ObjectType.kwzd__KnowWho_Batch_Filters__c.Fields.kwzd__Operator__c.inlineHelpText}">
+<apex:outputLabel >Select Operator</apex:outputLabel>
+<apex:selectList id="operators" size="1" value="{!coperator}">
+<apex:selectOptions value="{!operators}"/>
+</apex:selectList>
+</apex:pageBlockSectionItem>
+</apex:pageBlockSection>
+
+<apex:pageBlockSection id="filters">
+<apex:pageBlockSectionItem id="filter1" rendered="{!!showpvalues}" helpText="{!$ObjectType.kwzd__KnowWho_Batch_Filters__c.Fields.kwzd__Filter_Value__c.inlineHelpText}">
+<apex:outputLabel value="Filter Value"/>
+<apex:inputField value="{!kwzd__KnowWho_Batch_Filters__c.kwzd__Filter_Value__c}"/>
+</apex:pageBlockSectionItem>
+
+<apex:pageBlockSectionItem id="filter2" rendered="{!showpvalues}" helpText="{!$ObjectType.kwzd__KnowWho_Batch_Filters__c.Fields.kwzd__Filter_Value__c.inlineHelpText}">
+<apex:outputLabel value="Filter Value"/>
+<apex:selectList id="pvalues" size="1" value="{!pvalue}">
+    <apex:selectOptions value="{!pvalues}"/>
+</apex:selectList>
+</apex:pageBlockSectionItem>
+
+</apex:pageBlockSection>
+
+<apex:pageBlockButtons >
+<apex:commandButton value="Submit" action="{!updatefilter}"/>
+<apex:commandButton value="Cancel" action="{!cancel}"/>
+</apex:pageBlockButtons>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

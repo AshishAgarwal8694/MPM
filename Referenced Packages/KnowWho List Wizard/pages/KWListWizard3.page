@@ -1,0 +1,51 @@
+<apex:page controller="kwlw.KnowWhoListWizardCore" tabStyle="KnowWho_List_Wizard__tab">
+
+<apex:includeScript value="{!URLFOR($Resource.kwlw__jquerykw, 'js/jquery-1.7.1.min.js')}"/>
+
+
+<script type="text/javascript">
+       var j$ = jQuery.noConflict();
+ 
+       j$(document).ready(function(){
+          j$('img[id*="page3pblocksection"]').each(function() {
+            twistSection(this);
+            });
+                 
+        });
+ </script>         
+
+
+<apex:sectionHeader help="https://www.knowwho.com/salesforce/help/lw_page_3.asp" title="KnowWho List Wizard" subtitle="Step 3 of 3"/>
+
+<apex:form id="page3form" >
+
+<apex:pageBlock id="page3pblock">
+<apex:pageBlockButtons >
+<apex:commandButton action="{!page3to2}" value="Go Back"/>
+<apex:commandButton action="{!campaignpage}" value="Review List"/>
+</apex:pageBlockButtons>
+
+<apex:pageBlockSection columns="1" id="page3pblocksectionoffices" title="{!mLabels['OfficestoExclude']}">
+<apex:outputText >Check any specific Member office or offices you want to exclude from this list.</apex:outputText>
+<apex:outputText rendered="{!!bOfficestoExcludeDisplay}">This filter is not applicable for this list type.</apex:outputText>
+
+<apex:pageBlockTable rendered="{!bOfficestoExcludeDisplay}" value="{!OfficesToExclude.selectablelist}" var="o" columnsWidth="7%,93%">
+
+<apex:column >
+<apex:facet name="header">Exclude?</apex:facet>
+<apex:inputCheckbox value="{!o.bselected}"/>
+</apex:column>
+
+<apex:column >
+<apex:facet name="header">Member Office</apex:facet>
+{!o.shortcode}
+</apex:column>
+
+</apex:pageblockTable>
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+
+</apex:form>
+
+</apex:page>

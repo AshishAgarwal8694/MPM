@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>URL</field>
+    </columns>
+    <columns>
+        <field>PHONE2</field>
+    </columns>
+    <description>All municipalities in NY, grouped by their county, with website and phone number</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.kw__State__c</column>
+            <operator>startsWith</operator>
+            <value>NY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.kw__KW_Category__c</column>
+            <operator>equals</operator>
+            <value>Local Municipal Office</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.CountyLocal__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>County Municipality List - NY</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

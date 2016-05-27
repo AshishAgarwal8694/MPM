@@ -1,0 +1,227 @@
+<apex:page >
+	<div id="ajax_message_dialog" style="display:none">
+	 	<p>
+			<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 50px 0;"></span>
+			<span class="ajax_message_text"></span>
+		</p>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" media="screen"/>
+	<script type="text/javascript">
+		bhd_j = jQuery.noConflict()
+		bhd_j.widget(
+			'custom.catcomplete',
+			bhd_j.ui.autocomplete, 
+			{
+				_renderMenu: function(ul,items){
+					var that = this
+					current = ''
+					bhd_j.each(
+						items, 
+						function(index,item){
+							if(item.category != current){
+								ul.append('<li class="ui-autocomplete-category">' + item.category + '</li>')
+								current = item.category;
+							}
+							that._renderItemData(ul,item)
+						}
+					)
+				}
+			}
+		)
+		
+		bhd_j(document).ready(
+			function(){
+				bhd_j('.maps td.dataCol:even').css('text-align','right')
+				bhd_j('.maps .sort_list .pbSubsection').css('padding-bottom','10px').css('padding-top','10px').css('border-bottom','1px solid #eee').css('border-top','1px solid #ddd').css('margin','0px')
+			
+				bhd_j('.savable').change(
+					function(){
+						bhd_j(this).addClass('save').siblings('input.btn').addClass('save_button')
+					}
+				)
+			
+				bhd_j('#segments').change(
+					function(){
+						bhd_j(':input').attr('disabled','disabled').css('color','#999')
+						document.location.href = ('{!JSENCODE($CurrentPage.URL)}').replace(/segment=[a-z]*&/,'') + '&segment=' + bhd_j(this).val()
+					}
+				)
+				if(!bhd_j('#segments option[selected]').length || !bhd_j('#segments').val()){
+					bhd_j('div.sort_list').hide()
+				}
+			
+				bhd_j('.sort_list').each(
+					function(){
+						var sort_list = bhd_j(this)
+						var list_items = sort_list.children()
+						list_items.sort(
+							function(a,b){
+								a = bhd_j(a).find('label').text() || bhd_j(a).text()
+								b = bhd_j(b).find('label').text() || bhd_j(b).text()
+								
+								if(a > b) {
+									return 1
+								} else if(a < b) {
+									return -1
+								} else {
+									return 0
+								}
+							}
+						)
+						sort_list.children().remove()
+						sort_list.append(list_items)
+						if(this.tagName.toLowerCase() == 'select'){
+							selected = bhd_j('option[selected]',this)
+							sort_list.val('').val(selected.val())
+						}
+					}
+				)
+				
+				if(bhd_j('#fields_json_account').length){
+					autocomplete_data_account = bhd_j.parseJSON(bhd_j('#fields_json_account').text())
+				}
+				
+				bhd_j('input.autocompleter').each(
+					function(){
+						var t = bhd_j(this)
+						var tabdata
+						var populate						
+						
+						t.data('target',t.nextAll('input[type=hidden]:first'))
+						if(t.hasClass('type_STRING') || t.hasClass('type_TEXTAREA') || t.hasClass('type_PICKLIST') || t.hasClass('type_MULTIPICKLIST')){
+							tabdata = autocomplete_data_account['STRING']
+						} else if(t.hasClass('type_DECIMAL') || t.hasClass('type_PERCENT') || t.hasClass('type_CURRENCY') || t.hasClass('type_DOUBLE')){
+							tabdata = autocomplete_data_account['DOUBLE']
+						} else if(t.hasClass('type_PHONE')){
+							tabdata = autocomplete_data_account['PHONE']
+						} else if(t.hasClass('type_PHONE')){
+							tabdata = autocomplete_data_account['INTEGER']
+						} else if(t.hasClass('type_BOOLEAN')){
+							tabdata = autocomplete_data_account['BOOLEAN']
+						} else if(t.hasClass('type_DATE')){
+							tabdata = autocomplete_data_account['DATE']
+						} else if(t.hasClass('type_DATETIME')){
+							tabdata = autocomplete_data_account['DATETIME']
+						} else if(t.hasClass('type_URL')){
+							tabdata = autocomplete_data_account['URL']
+						}
+						t.catcomplete({
+							delay: 200,
+							source: function(request,response){
+								response(bhd_j.ui.autocomplete.filter(tabdata,request.term).slice(0,10))
+							},
+							select: function(event,ui){
+								bhd_j(this).val(ui.item.label).attr('title',ui.item.label).addClass('save').siblings('input.btn').addClass('save_button')
+								bhd_j(this).data('target').val(ui.item.value)
+								return false
+							}
+						}).keyup(
+							function(){
+								if(!bhd_j(this).val()){
+									bhd_j(this).data('target').val('')
+								}
+							}
+						)
+						if(populate = t.data('target').val()){
+							for(var i=0;i<tabdata.length;i++){
+								if(tabdata[i].value == populate){
+									t.val(tabdata[i].label).attr('title',tabdata[i])
+									break
+								}
+							}
+						}
+					}
+				)
+			}
+		)
+		
+		bhd_j('#ajax_message_dialog').dialog({
+			modal: true,
+			autoOpen: false,
+			buttons:{
+				Ok: function(){
+					bhd_j(this).dialog('close')
+				}
+			},
+			title: 'Error'
+		})
+		
+		function ajax_start(element){
+			var tr = bhd_j(element).data('mytext',bhd_j(element).val()).val('saving...').parents('tr:first').addClass('ajaxing')
+			tr.find(':input').attr('disabled','disabled')
+			tr.find('.save').removeClass('save')
+			tr.find('.save_button').removeClass('save_button')
+		}
+		function ajax_stop(element){
+			var m = bhd_j('.ajax_message_input').text()
+			var tr = bhd_j(element).val(bhd_j(element).data('mytext')).parents('tr:first').removeClass('ajaxing')
+			tr.find(':input').removeAttr('disabled','disabled')
+			if(m.indexOf('redirect') == 0){
+				document.location=m.split(' ').pop()
+			} else if(m){
+				bhd_j('.begin_match').nextAll('span:first').hide()
+				bhd_j('#ajax_message_dialog').dialog('open').find('.ajax_message_text').text(m)
+			} else {
+				tr.hide().show('highlight',{color:'#1797C0'})
+			}
+		}
+	</script>
+	<style type="text/css">
+		select.sort_list{
+			width: 200px;
+		}
+	
+		input.save, select.save{
+			border: 1px solid #1797C0 !important;
+		}
+		
+		input.save_button{
+			background: none repeat scroll 0 0 #1797C0 !important;
+		    border-width: 2px !important;
+		    color: #FFFFFF !important;
+		}
+		
+		tr.ajaxing input, tr.ajaxing label, tr.ajaxing select{
+			color: #999 !important;
+		}
+		
+		.maps .message{
+			margin: 10px 200px;
+		}
+		
+		.summary .message{
+			margin: 5px 200px 0px 0px;
+		}
+		
+		hr{
+			margin: 0 100px;
+		}
+		
+		.ui-autocomplete li.ui-menu-item{
+			text-align: left;
+			margin-left: 25px
+		}
+		
+		.ui-autocomplete li.ui-autocomplete-category{
+			text-align: left;
+			list-style-image: none;
+			margin-left: 0px !important;
+		}
+		
+		.ui-autocomplete-input{
+			width: 300px;
+		}
+		
+		.hidden{
+			display: none;
+		}
+		
+		.comment{
+			color: #777777;
+		    font-size: 85%;
+		    font-style: italic;
+		}
+	</style>
+</apex:page>

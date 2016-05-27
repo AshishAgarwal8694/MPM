@@ -1,0 +1,119 @@
+<apex:page >
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Welcome to the salesforce.com for Hedge Funds trial</title>
+</head> 
+<apex:pageBlock >
+<body id="splashBody">
+
+<h1 class="appName">Welcome to the salesforce.com for Hedge Funds trial</h1> 
+<table id="splash" cellspacing="0"> 
+    <tr> 
+        <td id="splashLeft" width="100%"> 
+        <div class="about"> 
+           <br><FONT size="2">
+        <b>Advantages of this system:</b> 
+        <br>
+        <br>
+        <table>
+            <tr>
+                <td width=5%>&nbsp;</td>
+                <td>
+                    <li><FONT size="2">Centralizes your firm data into a shared application (contacts, documents, aggregate email and activity history).<font></li> 
+                    <li><FONT size="2">Leverage salesforce.com's award winning CRM platform to track fundraising processes, investment commitments, redemptions and more.</font></li> 
+                    <li><FONT size="2">Outlook integration is native (contact, meeting, task synch, and email integration).</font></li> 
+                    <li><FONT size="2">Easy to use web interface; secure and accessible anywhere.</font></li> 
+                    <li><FONT size="2">Integrated analytics to use metrics to understand your market and your team’s prospecting efforts (see the Reports and Dashboards tabs at the top of this screen).</font></li> 
+            </td> 
+            </tr> 
+        </table> 
+        
+        </p> 
+        <p> 
+        
+        <b>To get started browsing through salesforce.com for Hedge Funds:</b> 
+        <FONT size="2">
+        <br>
+        <br>
+        <table>
+            <tr>
+                <td width=5%>&nbsp;</td>
+                <td>
+                    <li><FONT size="2">Search for the "Acme Investors" in the search box on the left.<font></li> 
+                    <li><FONT size="2">On the Acme Firm or LP detail page, review the “Fundraising Opportunities” for Acme – this is where you can track your fundraising process against this Limited Partner.</font></li> 
+                    <li><FONT size="2">On the Acme Fundraising Opportunity, drill into to “Fund I”—the fund information shows a comprehensive view of relevant items including Transactions, other Opportunities and more.</font></li> 
+                    <li><FONT size="2">View Dashboards tab above, with relevant analytics. Click on any picture to drill down into the underlying report.</font></li> 
+            </td> 
+            </tr> 
+        </table> 
+<table>
+            <tr>
+                <td width=10%>&nbsp;</td>
+                <td>
+
+                    <li><FONT size="2">Note that you can create your own reports: Just go to the reports tab, and click on Create New Custom Report.</font></li> 
+            </td> 
+            </tr> 
+        </table> 
+        <br> 
+        <p>
+        Additional features are available and changes can be made to this instance to meet your requirements. Just let us know what you need to be successful.</p>
+        </p> 
+        <p> 
+        
+        <b>Invite more users:</b> 
+        <FONT size="2">
+        <br>
+        If you would like to invite your colleagues to view this trial as well, 
+        <br>
+        <table>
+            <tr>
+                <td width=5%>&nbsp;</td>
+                <td>
+                    <li><FONT size="2">At the top center of this screen, go to Setup->Administration Setup->Manage Users->Users<font></li> 
+                    <li><FONT size="2">Reassign the existing active users to your colleagues </font></li> 
+</table>
+<table>
+            <tr>
+                <td width=10%>&nbsp;</td>
+                <td>
+
+                    <li><FONT size="2">Edit an existing user called Rename User X</font></li> 
+                    <li><FONT size="2">Enter your colleague's first and last name, email address and other required fields</font></li> 
+                    <li><FONT size="2">Scroll down to the bottom and make sure "Generate new password" is checked</font></li>
+                    <li><FONT size="2">Click Save</font></li> 
+            </td> 
+            </tr> 
+        </table> 
+<table>
+            <tr>
+                <td width=5%>&nbsp;</td>
+                <td>
+                    <li><FONT size="2">A login and temporary password will be sent immediately to the email address you assigned to that user </font></li> 
+                              </td> 
+            </tr> 
+        </table> 
+        <br> 
+        <p>Additionally, all data in salesforce.com is available on your PDA:
+see <a href="http://www.salesforce.com/mobile/lite/">http://www.salesforce.com/mobile/lite/</a><a href="http://mobile.force.com"></a>
+</p>    
+<br>
+<br>     
+                
+
+        <fieldset>
+        
+        <legend>Additional Help and Training</legend> 
+        <ul> 
+            <li> <p><FONT size="2">For answers to questions about using Salesforce, subscribers can contact customer support by clicking the Help &amp; Training link within the Salesforce application</FONT>. This is also where you will find more information on further configuring salesforce.com to your requirements.</p> </li> 
+        </ul> 
+        </fieldset> </div> 
+        </td> 
+        <td>
+        <div id="splashCenter"></div> 
+        </td> 
+        </tr> </table> </body> </html>
+</apex:pageBlock>
+
+</apex:page>

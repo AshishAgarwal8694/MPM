@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>About KnowWho directories for SalesForce CRM</description>
+    <frameHeight>600</frameHeight>
+    <hasSidebar>true</hasSidebar>
+    <label>KnowWho</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom180: TV Widescreen</motif>
+    <url>https://www.knowwho.com/salesforce/web/web.asp?theme={!$User.UIThemeDisplayed}</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

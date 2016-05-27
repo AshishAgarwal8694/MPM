@@ -1,0 +1,105 @@
+<apex:page controller="texcellency.DefinitiveSettingsController"
+    action="{!initialize}">
+    <apex:stylesheet value="{!$Resource.texcellency__def_styles}" />
+    <apex:form >
+        <apex:pageBlock title="Definitive Settings">
+            <apex:pageMessages />
+            <apex:pageBlockSection title="General Settings" columns="1" collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="useFullStateName">Use full state name</apex:outputLabel>
+                    <apex:inputCheckBox value="{!useFullStateName}" id="useFullStateName" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="corporateCode">Corporate Code</apex:outputLabel>
+                    <apex:inputText value="{!corporateCode}" id="corporateCode" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Synchronization Settings" columns="1"
+                collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncFreq">Synchronize with DefinitiveHC Database</apex:outputLabel>
+                    <apex:selectList value="{!syncFrequency}" id="syncFreq"
+                        multiSelect="false" size="1">
+                        <apex:selectOptions value="{!syncFrequencies}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncMode">Synchronization Mode</apex:outputLabel>
+                    <apex:selectList value="{!syncMode}" id="syncMode"
+                        multiSelect="false" size="1">
+                        <apex:selectOptions value="{!syncModes}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncWeekDay">Synchronize on every (when synchronizing weekly)</apex:outputLabel>
+                    <apex:selectList value="{!SyncWeekDay}" id="syncWeekDay"
+                        multiSelect="false" size="1">
+                        <apex:selectOptions value="{!weekDays}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncMonthDay">Synchronize on every (when synchronizing monthly)</apex:outputLabel>
+                    <apex:selectList value="{!SyncMonthDay}" id="syncMonthDay"
+                        multiSelect="false" size="1">
+                        <apex:selectOptions value="{!monthDays}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncContacts">Synchronize contacts</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncContacts}" id="syncContacts" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncLeads">Synchronize leads</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncLeads}" id="syncLeads" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncJob">Current Sync Job Id</apex:outputLabel>
+                    <apex:outputText value="{!syncJobId}" id="syncJob" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Select Standard Fields to be Synced for Accounts" columns="2" collapsible="true">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncAccName">Name</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncStdFldAccName}" id="syncAccName" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncBillingStreet">Billing Street</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncStdFldBillingStreet}" id="syncBillingStreet" />
+                </apex:pageBlockSectionItem>                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncWebsite">Website</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncStdFldWebsite}" id="syncWebsite" />
+                </apex:pageBlockSectionItem> 
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncBillingCity">Billing City</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncStdFldBillingCity}" id="syncBillingCity" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncPhone">Phone</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncStdFldPhone}" id="syncPhone" />
+                </apex:pageBlockSectionItem>                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncBillingState">Billing State</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncStdFldBillingState}" id="syncBillingState" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncAnnualRev">Annual Revenue</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncStdFldAnnualRev}" id="syncAnnualRev" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncBillingPostalCode">Billing Postal Code</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncStdFldBillingPostalCode}" id="syncBillingPostalCode" />
+                </apex:pageBlockSectionItem>                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="syncNumOfEmployees">Number of Employees</apex:outputLabel>
+                    <apex:inputCheckBox value="{!syncStdFldNumOfEmployees}" id="syncNumOfEmployees" />
+                </apex:pageBlockSectionItem>                        
+            </apex:pageBlockSection>            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveSettings}" value="Save Settings" />
+                <apex:commandButton action="{!syncAccounts}" value="Synchronize Accounts" />
+                <apex:commandButton action="{!syncLeads}" value="Synchronize Leads" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

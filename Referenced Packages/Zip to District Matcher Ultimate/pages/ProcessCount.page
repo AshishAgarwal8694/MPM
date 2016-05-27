@@ -1,0 +1,103 @@
+<apex:page standardController="kwzd__Zip_to_District__c" extensions="kwzd.KWD_ZiptoDistrictController" title="ZDM Batch {!kwzd__Zip_to_District__c.Name}">
+<!-- With reference to http://www.tehnrd.com/batch-apex-status-bar/ -->
+
+<style>
+        .progressBar{
+            background-color: #f8f8f8;
+            border:1px solid #DDDDDD;
+            height: 19px;
+            width: 300px;
+            -moz-border-radius: 5px; 
+            -webkit-border-radius: 5px;
+        }
+        .progress{
+            background-color: #F7B64B;
+            border:1px solid #E78F08;
+            height: 100%;
+            margin: -1px;
+            text-align: center;
+            -moz-border-radius: 5px; 
+            -webkit-border-radius: 5px;
+            line-height: 18px;
+        }
+    </style>
+
+<apex:sectionHeader title="KnowWho Zip to District" help="https://www.knowwho.com/salesforce/help/zdm_main.asp" />
+<apex:form >
+
+<apex:outputField rendered="false" value="{!kwzd__Zip_to_District__c.kwzd__Object__c}"/>
+<apex:outputField rendered="false" value="{!kwzd__Zip_to_District__c.kwzd__Filter_Count__c}"/>
+<apex:outputField rendered="false" value="{!Zip_to_District__c.Credits_Required__c }"/>
+<apex:outputField rendered="false" value="{!kwzd__Zip_to_District__c.kwzd__Record_Count__c}"/>
+<apex:outputField rendered="false" value="{!kwzd__Zip_to_District__c.kwzd__Batch_Status__c}"/>
+<apex:outputField rendered="false" value="{!kwzd__Zip_to_District__c.kwzd__Current_Batch_Id__c}"/>
+<apex:outputField rendered="false" value="{!kwzd__Zip_to_District__c.kwzd__Current_Batch_Count__c}"/>
+
+
+<apex:outputPanel id="bmsg">
+
+<apex:pageBlock title="{!sPageText}">
+
+<apex:pageMessages />
+      
+        <apex:outputPanel rendered="{!showprocessing}">
+                         <!-- Here with have two divs that construct our progresses bar. An outer which is the entire bar,
+                        and and inner that represents the percent complete. We simply pass the percentComplete value to
+                        the inner div width and this will show how far along the job is. Brilliant! -->
+         
+                        <div class="progressBar">
+                            <div class="progress" style="width: {!kwdbs.percentComplete}%;">
+                                {!kwdbs.percentComplete}%
+                            </div>
+                        </div>
+        </apex:outputPanel>
+
+
+        <apex:outputPanel rendered="{!showcalccomplete}">
+                <apex:panelGrid columns="2">
+                <apex:outputText value="Total Records Matched by Filter"/>
+                <apex:outputfield value="{!kwdu.kwzd__Record_Count__c}"/>
+                <apex:outputText value="Total Records to be Processed"/>
+                <apex:outputfield value="{!kwdu.kwzd__Records_Requiring_Processing__c}"/>
+                <apex:outputText value="Total Credits Required for Processing"/>
+                <apex:outputfield value="{!kwdu.kwzd__Credits_Required__c}"/>
+                <apex:outputText value="Total Remaining Credits Available"/>
+                <apex:outputfield value="{!kwdu.kwzd__Current_Credits_Available__c}"/>
+                </apex:panelGrid>
+                
+          <br/><apex:commandLink action="{!executeBatch}" value="Submit Batch for Processing" rendered="{!showbatchsubmit}" reRender="bmsg,success"/><br/>
+          <br/>Click&nbsp; <apex:outputLink value="/{!kwzd__Zip_to_District__c.Id}">here</apex:outputLink> to return to the Zip to District record.<br/>
+          </apex:outputPanel>
+
+        <apex:outputPanel id="berror" rendered="{!showcrediterror}">
+        You do not have enough available credits to process this batch. Please contact your KnowWho sales representative to purchase additional credits.<br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel id="bgeneralerror" rendered="{!showgeneralerror}">
+         <br/>Click&nbsp; <apex:outputLink value="/{!kwzd__Zip_to_District__c.Id}">here</apex:outputLink> to return to the Zip to District record.
+        </apex:outputPanel>
+
+        <apex:outputPanel id="bexperror" rendered="{!showexpiryerror}">
+        Your KnowWho Zip To District Matching subscription has expired. Please contact your KnowWho sales representative to renew your subscription.<br/>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!showzdmcomplete}">
+        Batch Processing Complete!<br/>
+        <br/>Click&nbsp; <apex:outputLink value="/{!kwzd__Zip_to_District__c.Id}">here</apex:outputLink> to return to the Zip to District record.<br/>
+                
+        </apex:outputPanel>
+
+        <apex:outputPanel id="success" rendered="{!showzdmsubmitted}">
+        Your records have been submitted for processing. You will receive an e-mail confirmation when the batch has been processed.<br/>
+        <br/>Click&nbsp; <apex:outputLink value="/{!kwzd__Zip_to_District__c.Id}">here</apex:outputLink> to return to the Zip to District record.
+        </apex:outputPanel>
+ 
+     </apex:pageBlock>
+         
+
+<apex:actionPoller rendered="{!showprocessing}" action="{!refresh}" rerender="bmsg" interval="5"/>
+</apex:outputPanel>
+
+
+</apex:form>
+</apex:page>

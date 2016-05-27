@@ -1,0 +1,329 @@
+<apex:page Controller="bhd.bhd_controller_map" title="Mapping" tabStyle="bhd_map_tab__tab">
+    <apex:outputText style="display:none" id="ajax_message" value="{!ajax_message}" styleClass="ajax_message_input" />
+    <apex:include pageName="bhd__bhd_ajax"/>
+    <apex:include pageName="bhd__bhd_tooltip"/>
+	<apex:pageBlock title="Unavailable" rendered="{!creds==false}"> 
+        <apex:pageMessage summary="Please complete Initial Setup" severity="warning" strength="3" />
+    </apex:pageBlock>
+	<apex:tabPanel styleClass="maps" switchType="client" id="map_type" rendered="{!creds==true}" value="{!active_tab}">
+	        <apex:tab label="Accounts" name="account" id="map_account" >
+	        	<apex:pageBlock title="Accounts" mode="edit">
+	        		<div class="hidden" id="fields_json_account">{!fields_json_account}</div>
+					<apex:pageBlockSection columns="2">
+						<apex:pageBlockSectionItem labelStyle="text-align:right;">
+							<apex:outputLabel value="Select Market Segment" style="font-weight:bold;font-size: 200%;" styleClass="bhd_tooltip_hook" title="{!currently_mapped}"/> 
+						</apex:pageBlockSectionItem>
+						<apex:pageBlockSectionItem >
+							<apex:form >
+								<select id="segments" style="font-size:150%;">
+									<option></option>
+									<apex:repeat value="{!segments}" var="segment">
+		           						<apex:outputText rendered="{!segment['label']==sel_segment}"><option value="{!segment['label']}" selected="selected">{!segment['name']}</option></apex:outputText>
+										<apex:outputText rendered="{!segment['label']!=sel_segment}"><option value="{!segment['label']}">{!segment['name']}</option></apex:outputText>
+		           					</apex:repeat>
+								</select>
+								<apex:commandLink target="_blank" action="{!data_dictionary}" value="Data Dictionary"/>
+							</apex:form>
+						</apex:pageBlockSectionItem>
+					</apex:pageBlockSection>
+					<br/><br/>
+					<br/><br/>
+					<h1 class="bhd_tooltip_hook" title="These fields are required in your Salesforce instance and do not have default values set; 'Add to SF' in the BHD Portal will not function correctly.">&nbsp;&nbsp;&nbsp;Required Fields</h1>
+					<div class="sort_list">
+						<apex:repeat value="{!field_r}" var="field">
+							<apex:pageBlockSection columns="2">
+								<apex:pageBlockSectionItem >
+									<apex:outputLabel styleClass="bhd_tooltip_hook bhd_tooltip_link" title="{!field['type_hint']}" value="{!field['name']}" style="font-weight:bold;"/> 
+								</apex:pageBlockSectionItem>
+								<apex:pageBlockSectionItem >
+									<apex:form >
+										<input type="hidden" name="field" value="{!field['label']}"/>
+										<input class="autocompleter savable tab_account type_{!field['type']}" placeholder="search for available fields"/>
+										<input type="hidden" name="selection" value="{!field['bhd']}"/>
+										<apex:commandButton action="{!save_account}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+									</apex:form>
+								</apex:pageBlockSectionItem>
+							</apex:pageBlockSection>
+						</apex:repeat>
+						<br/>
+					</div>
+					<br/><br/>
+					<br/><br/>
+					<h1>&nbsp;&nbsp;&nbsp;Eligible Fields</h1>
+					<div class="sort_list">
+						<apex:repeat value="{!field_a}" var="field">
+							<apex:pageBlockSection columns="2">
+								<apex:pageBlockSectionItem >
+									<apex:outputLabel styleClass="bhd_tooltip_hook bhd_tooltip_link" title="{!field['type_hint']}" value="{!field['name']}" style="font-weight:bold;"/> 
+								</apex:pageBlockSectionItem>
+								<apex:pageBlockSectionItem >
+									<apex:form >
+										<input type="hidden" name="field" value="{!field['label']}"/>
+										<input class="autocompleter savable tab_account type_{!field['type']}" placeholder="search for available fields"/>
+										<input type="hidden" name="selection" value="{!field['bhd']}"/>
+										<apex:commandButton action="{!save_account}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);"/>
+									</apex:form>
+								</apex:pageBlockSectionItem>
+							</apex:pageBlockSection>
+						</apex:repeat>
+						<br/>
+					</div>
+					<br/><br/>
+					<br/><br/>
+					<h1 class="bhd_tooltip_hook" title="These fields are not available to be mapped because you do not have permissions to update them.">&nbsp;&nbsp;&nbsp;Ineligible Fields</h1>
+					<div class="sort_list">
+						<apex:repeat value="{!field_fls}" var="field">
+							<apex:pageBlockSection columns="2">
+								<apex:pageBlockSectionItem >
+									<apex:outputLabel value="{!field['name']}" style="font-weight:bold;color:#f00;"/> 
+								</apex:pageBlockSectionItem>
+								<apex:pageBlockSectionItem >
+									<apex:form >
+										<input type="hidden" name="field" value="{!field['label']}"/>
+										<input disabled="disabled" class="autocompleter savable tab_account type_{!field['type']}" placeholder="unavailable"/>
+										<input type="hidden" name="selection" value="{!field['bhd']}"/>
+										<apex:commandButton value="----" disabled="true"/>
+									</apex:form>
+								</apex:pageBlockSectionItem>
+							</apex:pageBlockSection>
+						</apex:repeat>
+						<br/>
+					</div>
+					<div style="text-align:center">
+						<br/>
+						<apex:form >
+							<apex:commandButton value="Save All" onclick="bhd_j('.save_button').click();return false;" style="width:80%"/>
+						</apex:form>
+						<br/>
+					</div>
+				</apex:pageBlock>
+	        </apex:tab>
+	        <apex:tab label="Contacts and Leads" name="lead">
+	        	<apex:pageBlock title="Contacts and Leads" mode="edit">
+					<apex:pagemessage severity="info" strength="1">
+				    	Many BHD contacts are associated with multiple Titles. When data is synced to your organization, the configuration below will be used to determine which Title will be given when a contact has multiple Titles available. If you make no selections, or clear all selections, all Titles will be synced using the <a onclick="bhd_j('#title_code_pri').dialog('open');return false;" style="cursor: pointer;text-decoration: underline;">default prioritization</a>.
+				    </apex:pagemessage>
+				     <apex:pageBlockSection columns="2">
+						<apex:pageBlockSectionItem >
+						   	<apex:outputLabel value="Available Titles" style="font-weight:bold;"/> 
+						</apex:pageBlockSectionItem>
+						<apex:pageBlockSectionItem >
+						   	<apex:outputLabel value="Selected Titles" style="font-weight:bold;"/> 
+						</apex:pageBlockSectionItem>
+						<apex:pageBlockSectionItem >
+							<apex:form >
+	          					<select id="avail" multiple="multiple" size="10" style="width: 90%;">
+		           					<apex:repeat value="{!titles}" var="title">
+		           						<option value="{!title['label']}">{!title['name']}</option>
+		           					</apex:repeat>
+	          					</select>
+	          					<div style="float: right;">
+	          						<apex:commandButton value="remove" onclick="return title_remove();" style="width: 48px;"/><br/><br/>
+	          						<apex:commandButton value="add" onclick="return title_add()" style="width: 48px;"/>
+						   		</div>
+						   	</apex:form>
+						</apex:pageBlockSectionItem>						
+						<apex:pageBlockSectionItem >
+							<apex:form >
+								<input id="sel_val" name="selection" type="hidden" value=""/>
+	          					<select id="sel" multiple="multiple" size="10" style="width: 90%;" class="savable">
+		           					<apex:repeat value="{!sel_titles}" var="title">
+		           						<option value="{!title['label']}">{!title['name']}</option>
+		           					</apex:repeat>
+	          					</select>
+	          					<div style="float: right">
+	          						<apex:commandButton value="up" onclick="return title_up()" style="width: 48px;"/><br/><br/>
+	          						<apex:commandButton value="down" onclick="return title_down()" style="width: 48px;"/><br/><br/>
+						   			<apex:commandButton style="width: 48px;" action="{!save_titles}" value="Save" rerender="ajax_message" oncomplete="ajax_stop(this);" onclick="ajax_start(this);title_save();"/>
+          						</div>
+          					</apex:form>
+						</apex:pageBlockSectionItem>
+					</apex:pageBlockSection>
+				</apex:pageBlock>
+	        </apex:tab>
+	</apex:tabPanel>
+	<script type="text/javascript">
+		avail = bhd_j('#avail')
+		sel = bhd_j('#sel')
+		function title_add(){
+			sel.append(avail.find('option:selected').detach())
+			return false
+		}
+		function title_remove(){
+			avail.append(sel.find('option:selected').detach())
+			var opt = avail.children()
+			opt.sort(
+				function(a,b){
+					a = bhd_j(a).text()
+					b = bhd_j(b).text()
+					
+					if(a > b) {
+						return 1
+					} else if(a < b) {
+						return -1
+					} else {
+						return 0
+					}
+				}
+			)
+			avail.children().remove()
+			avail.append(opt)
+			return false
+		}
+		function title_up(){
+			var s = sel.find('option:selected')
+			var p = s.prev()
+			if(p.length){
+			    p.before(s.detach())
+			}
+			return false
+		}
+		function title_down(){
+			var s = sel.find('option:selected')
+			var n = s.next()
+			if(n.length){
+			    n.after(s.detach())
+			}
+			return false
+		}
+		function title_save(){
+			var val = new Array()
+			sel.children().each(
+			    function(){
+			        val.push(bhd_j(this).attr('value'))
+			    }
+			)
+			bhd_j('#sel_val').val(val.join())
+		}
+		bhd_j(document).ready(
+			function(){
+				bhd_j('#title_code_pri').dialog(
+					{
+						modal: true,
+						autoOpen: false,
+						title: 'Default Title Code Prioritization',
+						width: 400,
+						height: 400
+					}
+				)
+			}
+		)
+	</script>
+	<div style="display: none;" id="title_code_pri">
+		<p>Owner</p>
+		<p>Chairman of the Board</p>
+		<p>CEO</p>
+		<p>Pres</p>
+		<p>Administrator</p>
+		<p>Executive Director</p>
+		<p>CFO</p>
+		<p>Chief Nursing Officer</p>
+		<p>COO</p>
+		<p>CIO</p>
+		<p>Chief Medical Officer (MD)</p>
+		<p>Chief Med Info Ofcr (MD)</p>
+		<p>Chief Technol Ofcr</p>
+		<p>Chief of Medicine</p>
+		<p>Chief Surg (MD)</p>
+		<p>Compliance Ofcr</p>
+		<p>IT Steering Committee Chair</p>
+		<p>Chief of Radiol (MD)</p>
+		<p>Chief Staff (MD)</p>
+		<p>Chief Anesthes (MD, CRNA)</p>
+		<p>Chief Cardiol (MD)</p>
+		<p>Chief Oncol (MD)</p>
+		<p>Emergency Preparedness Officer</p>
+		<p>Chief Pathol (MD)</p>
+		<p>Privacy Ofcr</p>
+		<p>Executive Vice President</p>
+		<p>Senior Vice President</p>
+		<p>Senior Vice President Finance</p>
+		<p>VP Med Affairs (MD)</p>
+		<p>Controller/Finance</p>
+		<p>VP Finance</p>
+		<p>VP HR</p>
+		<p>VP Mktg/PR</p>
+		<p>VP Mat Mgmt/Purch</p>
+		<p>Asst Admin</p>
+		<p>Vice President</p>
+		<p>Vice President Operations</p>
+		<p>Vice President Development/Planning</p>
+		<p>Vice President Facilities Management</p>
+		<p>Vice President Corp Communications</p>
+		<p>Vice President Planning</p>
+		<p>Vice President Information Svcs</p>
+		<p>Mat Mgt/Purch Dir</p>
+		<p>Med Rec (HIM)</p>
+		<p>IS (MIS)</p>
+		<p>Nurs Svcs/Pt Care</p>
+		<p>HR</p>
+		<p>Business Office</p>
+		<p>Quality Mgmt</p>
+		<p>Surg Svcs/OR (RN)</p>
+		<p>Risk Mgmt/Pt Safety</p>
+		<p>Pharm Svcs</p>
+		<p>Emerg Svcs (RN)</p>
+		<p>IT Network Security</p>
+		<p>Nursing Informatics (RN)</p>
+		<p>PR/Mktg</p>
+		<p>Maint Dir/Facil Mgmt</p>
+		<p>Planning/Development</p>
+		<p>Radiol/Diag Imaging</p>
+		<p>Emerg Svcs (MD)</p>
+		<p>Lab Dir</p>
+		<p>Biomed/Clin Eng</p>
+		<p>Rehab Svcs</p>
+		<p>Infection Control</p>
+		<p>PT Dir</p>
+		<p>Cath Lab Dir</p>
+		<p>Case Manager (RN)</p>
+		<p>Hospitalist</p>
+		<p>Ambu Care Dir</p>
+		<p>Cardiology Svcs</p>
+		<p>Staff Ed/Insvc</p>
+		<p>ICU/CCU (RN)</p>
+		<p>Social Svcs</p>
+		<p>OB/GYN/LDRP</p>
+		<p>Legal Affairs</p>
+		<p>Managed Care Dir</p>
+		<p>Environ Svcs/Laundry</p>
+		<p>Food Services</p>
+		<p>Blood Bank Director</p>
+		<p>Central/Sterile</p>
+		<p>RT Dir</p>
+		<p>OT Dir</p>
+		<p>Interventional Radiologist</p>
+		<p>Home Health Care</p>
+		<p>Util Rev</p>
+		<p>Volunteer Svcs</p>
+		<p>Residency Dir</p>
+		<p>Librarian</p>
+		<p>Formulary Chair</p>
+		<p>Corporate Communications</p>
+		<p>Network Development</p>
+		<p>Manager/Director of Sales</p>
+		<p>Contracts Admin</p>
+		<p>Capital Equipment Purchasing Director</p>
+		<p>Member/Provider Svcs Dir</p>
+		<p>Purchasing</p>
+		<p>Revenue Cycle Mgr</p>
+		<p>Telecom Manager</p>
+		<p>Pt Access Mgr/Admissions</p>
+		<p>PACS Manager</p>
+		<p>Security Manager</p>
+		<p>Manager</p>
+		<p>Manager Provider Services</p>
+		<p>Reimbursement Coor</p>
+		<p>Med Staff Coor</p>
+		<p>Physician/Doctor</p>
+		<p>Physician Recruiter</p>
+		<p>Nurse Recruiter</p>
+		<p>Discharge Planner</p>
+		<p>Diet Purch Agent</p>
+		<p>Pharm Purch</p>
+		<p>Other</p>
+		<p>Pharm Svcs Vendor</p>
+		<p>Environ Svc Vendor</p>
+		<p>Food Service Vendor</p>
+	</div>
+</apex:page>

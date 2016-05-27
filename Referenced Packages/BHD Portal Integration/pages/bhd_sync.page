@@ -1,0 +1,100 @@
+<apex:page Controller="bhd.bhd_controller_sync" title="Sync Management" tabStyle="bhd_sync_tab__tab">
+    <apex:include pageName="bhd__bhd_ajax"/>
+    <apex:include pageName="bhd__bhd_tooltip"/>
+	<apex:pageBlock title="Unavailable" rendered="{!creds==false}"> 
+        <apex:pageMessage summary="Please complete Initial Setup" severity="warning" strength="3" />
+    </apex:pageBlock>	
+	<apex:pageBlock title="Sync Management" rendered="{!creds!=false}"> 
+		<apex:pagemessage severity="info" strength="1" rendered="{!sync_last.bhd__value__c!=''}">
+	        <apex:outputLabel value="Next sync begins: "/><apex:outputText value="{!sync_next}"/><br/>
+	        <apex:outputLabel value="Last sync started: "/><apex:outputText value="{!sync_last.bhd__value__c}"/>
+	    </apex:pagemessage>
+		<apex:form >
+			<apex:pageBlockSection columns="2">
+				<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Weekday(s)" style="font-weight:bold;"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:selectList style="width:200px" value="{!sel_days}" multiselect="true">
+			            <apex:selectOptions value="{!days}"/>
+			        </apex:selectList>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Time" style="font-weight:bold;"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:selectList style="width:200px" value="{!sync_hours.bhd__value__c}" size="1">
+			            <apex:selectOptions value="{!hours}"/>
+			        </apex:selectList>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Include Hierarchy" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="Assign Parent Accounts to eligible Accounts based on BHD affiliation data."/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:selectList style="width:200px" value="{!sync_parent.bhd__value__c}" size="1">
+			            <apex:selectOptions value="{!parent}"/>
+			        </apex:selectList>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Sync Contacts" style="font-weight:bold;"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:selectList style="width:200px" value="{!sync_contact.bhd__value__c}" size="1">
+			            <apex:selectOptions value="{!contact}"/>
+			        </apex:selectList>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Reassign Contact.Owner to Account.Owner" style="font-weight:bold;"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:selectList style="width:200px" value="{!sync_contact_reassign.bhd__value__c}" size="1">
+			            <apex:selectOptions value="{!contact_reassign}"/>
+			        </apex:selectList>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Mirror Account Info in Contacts" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="When new Contacts are added for the first time, set their address and phone information to the same information as their parent Account."/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:selectList style="width:200px" value="{!contact_mirror_trigger.bhd__value__c}" size="1">
+			            <apex:selectOptions value="{!contact_mirror}"/>
+			        </apex:selectList>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Sync Leads" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="Warning: syncing leads will place all unmatched accounts and linked contacts in your Portal subscription into your Salesforce Leads."/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:selectList style="width:200px" value="{!sync_lead.bhd__value__c}" size="1">
+			            <apex:selectOptions value="{!lead}"/>
+			        </apex:selectList>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Debug Mode" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="Determines whether a batch is allowed to proceed if a single upsert fails. NO is the default, recommended setting. Only set to YES if you are attempting to investigate a specific problem."/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:selectList style="width:200px" value="{!allornone.bhd__value__c}" size="1">
+			            <apex:selectOptions value="{!aon}"/>
+			        </apex:selectList>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+			   	
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				   	<apex:commandButton action="{!save}" value="Save" />
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			<br/><br/><br/>
+    		<apex:pageMessages />
+    		<script type="text/javascript">
+				bhd_j('td.messageCell').each(
+				  function(){
+				    var t = bhd_j(this)
+				    t.html(
+				      t.html().split('{here}').join('<a href="../apexpages/setup/listAsyncApexJobs.apexp" style="margin:0;">here</a>')
+				    )
+				  }
+				)
+			</script>
+			<apex:commandButton action="{!sync}" value="Run Manually Now" />
+		</apex:form>
+	</apex:pageBlock>
+</apex:page>

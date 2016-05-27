@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>SALUTATION</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>Contact.Title__c</field>
+    </columns>
+    <columns>
+        <field>PHONE1</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <description>House Member staffers that specifically cover Education or a senior staffer where this issue is not covered</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact.KnowWhoId__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CONTACT_RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Contact.KW_Staffer_Record</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Issues_Mailing_Lists__c</column>
+            <operator>includes</operator>
+            <value>Education</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Chamber__c</column>
+            <operator>equals</operator>
+            <value>US House</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>PARENT_ID</column>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.KW_Category__c</column>
+            <operator>equals</operator>
+            <value>Fed Legislator Staff</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact.StateOfCoverage__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>House:Education Staff 2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>ACCOUNT.NAME</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

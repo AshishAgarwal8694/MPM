@@ -1,0 +1,207 @@
+<apex:page id="ListReviewPage" Controller="kwlw.KnowWhoListWizardCore" title="KnowWho List Wizard">
+
+<apex:sectionHeader help="https://www.knowwho.com/salesforce/help/lw_page_4.asp" title="KnowWho List Wizard" subtitle="List Information"/>
+
+<apex:pageBlock >
+
+<apex:pageMessage severity="info">
+This list contains {!contactcount} records. 
+You will be able to remove unwanted individual records after you import the list to a campaign.
+</apex:pageMessage>
+
+<apex:pageMessage severity="info">
+<apex:panelGrid columns="2">
+<apex:outputLabel >List Type:</apex:outputLabel>
+<apex:outputText value="{!sListLabel}"/>
+<apex:outputLabel >Gender:</apex:outputLabel>
+<apex:outputText value="{!sGenderLabel}"/>
+<apex:outputLabel >Address Type:</apex:outputLabel>
+<apex:outputText value="{!sAddressTypeLabel}"/>
+<apex:outputLabel rendered="{!bPartyDisplay}"  >Party:</apex:outputLabel>
+<apex:outputText rendered="{!bPartyDisplay}"  value="{!Party.userselection}"/>
+
+<apex:outputLabel rendered="{!bCommitteePartyDisplay}">Staffer Political Party:</apex:outputLabel>
+<apex:outputText rendered="{!bCommitteePartyDisplay}" value="{!Category.userselection}"/>
+
+<apex:outputLabel rendered="{!bStateDisplay}" >States:</apex:outputLabel>
+<apex:outputText rendered="{!bStateDisplay}"  value="{!States.userselection}"/>
+<apex:outputLabel rendered="{!NOT(ISNULL(Committees))}" >{!mLabels['Committee']}</apex:outputLabel>
+<apex:outputText rendered="{!NOT(ISNULL(Committees))}"  value="{!Committees.userselection}"/>
+<apex:outputLabel rendered="{!NOT(ISNULL(kwtax))}">Issues:</apex:outputLabel>
+<apex:outputText rendered="{!NOT(ISNULL(kwtax))}" value="{!kwtax.Issues.userselection}"/>
+<apex:outputLabel rendered="{!NOT(ISNULL(kwtax))}">Roles:</apex:outputLabel>
+<apex:outputText rendered="{!NOT(ISNULL(kwtax))}" value="{!kwtax.Roles.userselection}"/>
+
+</apex:panelGrid>
+</apex:pageMessage>
+
+<apex:pageMessage rendered="{!kwcamp.bDebug}" severity="info">
+Current Count Query:{!q}<br/>
+Current Member Query: {!kwcamp.sContactQuery}
+</apex:pageMessage>
+
+<apex:pageMessage severity="info">
+<apex:panelGrid columns="2">
+<apex:outputLabel rendered="{!NOT(ISNULL(OfficesToExclude))}">Exclusions: </apex:outputLabel>
+<apex:outputText rendered="{!NOT(ISNULL(OfficesToExclude))}" value="{!OfficesToExclude.userselection}"/>
+<apex:outputLabel rendered="{!ISNULL(OfficesToExclude)}">Exclusions: </apex:outputLabel>
+<apex:outputText rendered="{!ISNULL(OfficesToExclude)}" value="NONE"/>
+</apex:panelGrid>
+</apex:pageMessage>
+</apex:pageBlock>
+
+<apex:form id="campaignForm" >
+
+<apex:OutputPanel Id="ContactLists">
+
+<apex:actionRegion >
+<apex:pageBlock id="savedlist" Title="{!IF(ISNULL(selectedlistquery),'Save List for Future Use (Optional)', 'Save New List for Future Use (Optional)')}">
+<apex:pageBlockButtons location="top" >
+
+<apex:commandButton disabled="{!bQuerySaved}" onclick="jsvalidateform();" action="{!savequery}" rerender="savedlist" value="{!IF(ISNULL(selectedlistquery),'Save List', 'Save New List')}"/>
+
+
+</apex:pageBlockButtons>
+
+<apex:pageBlockSection id="savedlistpSection" columns="1">
+
+<apex:pageBlockSectionItem >
+<apex:outputLabel rendered="{!!ISNULL(selectedlistquery)}"/>
+<apex:outputText rendered="{!!ISNULL(selectedlistquery)}">If you changed any filters you can create a New Saved List and your initial selected list will retain its original filters.</apex:outputText>
+</apex:pageBlockSectionItem>
+
+<apex:pageBlockSectionItem helpText="Enter a name to save this set of list filters for future use." rendered="{!!bQuerySaved}" id="savedlistpSectionItem">
+<apex:outputLabel id="savedlistlabelnew" for="savedlistname">Enter Name for Saved List</apex:outputLabel>
+<apex:inputField id="savedlistname" style="width:150px"  value="{!nquery.kwlw__Query_Name__c}"/>
+</apex:pageBlockSectionItem>
+
+<apex:pageBlockSectionItem helpText="Enter an optional description for this saved list that will help you remember what it filters." rendered="{!!bQuerySaved}">
+<apex:outputLabel >Enter Description (Optional)</apex:outputLabel>
+<apex:inputText style="width:450px;" value="{!nquery.kwlw__List_Description__c}"/>
+</apex:pageBlockSectionItem>
+
+<apex:pageBlockSectionItem helpText="Enter a name to save this set of list filters for future use." rendered="{!bQuerySaved}" id="savedlistpSectionItemsset" >
+<apex:outputLabel id="savedlistlabelnew2" for="savedlistname">Enter Name for Saved List</apex:outputLabel>
+<apex:outputField id="savedlistnamesaved2" style="width:150px"  value="{!nquery.kwlw__Query_Name__c}"/>
+</apex:pageBlockSectionItem>
+
+<apex:pageBlockSectionItem helpText="Enter an optional description for this saved list that will help you remember what it filters." rendered="{!bQuerySaved}">
+<apex:outputLabel >Enter Description (Optional)</apex:outputLabel>
+<apex:outputText style="width:450px;" value="{!nquery.kwlw__List_Description__c}"/>
+</apex:pageBlockSectionItem>
+
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+</apex:actionRegion>
+
+<apex:actionRegion >
+
+<apex:pageBlock Title="Choose a Campaign" id="chooseCampaign">
+<apex:pageMessages />
+<apex:pageBlockButtons location="top">
+
+<apex:actionStatus id="addtoCampaign">
+         <apex:facet name="stop">
+        <apex:commandButton action="{!kwcamp.addContactsToCampaign}" value="Add Contacts to Selected Campaign" status="addtoCampaign" reRender="chooseCampaign"/>
+         </apex:facet>
+         <apex:facet name="start">
+             <apex:outputPanel >
+                   <apex:image value="/img/loading32.gif" style="height: 15px;"/>
+                   <apex:commandButton value="Adding Contacts..." status="addtoCampaign" disabled="true"/>
+               </apex:outputPanel>
+           </apex:facet>
+</apex:actionStatus>
+
+<apex:commandButton action="{!kwcamp.createCampaign}" value="Create New Campaign" reRender="ContactLists"/>
+<apex:commandButton action="{!newpage1}" value="Start Over"/>
+</apex:pageBlockButtons>
+
+<apex:pageBlockSection columns="1" >
+<apex:pageBlockSectionItem helpText="See Help for this Page for details about how to import this list into an existing or new campaign.">
+
+<apex:outputLabel >Select Existing Campaign</apex:outputLabel>
+<apex:selectList size="1" value="{!kwcamp.SelectedCampaign}">
+<apex:selectOptions value="{!kwcamp.CampaignList}"/>
+</apex:selectList>
+</apex:pageBlockSectionItem>
+
+</apex:pageBlockSection>
+</apex:pageBlock>
+</apex:actionRegion>
+
+<apex:actionRegion >
+<apex:outputPanel id="newCampaignPanel">
+
+<apex:pageBlock id="newCampaignBlock" title="Create a New Campaign" Id="NewCampaignCreation" rendered="{!kwcamp.bNewCampaign}">
+<apex:pageMessages />
+<apex:pageBlockButtons location="top" >
+
+
+
+<apex:actionStatus id="addtoNewCampaign">
+         <apex:facet name="stop">
+        <apex:commandButton action="{!kwcamp.CreateandAddCampaign}" value="Create and Add Contacts" reRender="newCampaignPanel" status="addtoNewCampaign"/>
+         </apex:facet>
+         <apex:facet name="start">
+             <apex:outputPanel >
+                   <apex:image value="/img/loading32.gif" style="height: 15px;"/>
+                   <apex:commandButton value="Adding Contacts..." status="addtoNewCampaign" disabled="true"/>
+               </apex:outputPanel>
+           </apex:facet>
+</apex:actionStatus>
+
+
+
+<apex:commandButton action="{!kwcamp.CancelCampaign}" value="Cancel" reRender="newCampaignPanel,chooseCampaign" immediate="true"/>
+</apex:pageBlockButtons>
+
+<apex:pageBlockSection id="newCampaignBlockpSection">
+            <apex:inputField id="newCampaignBlockNameField" value="{!kwcamp.newCampaign.Name}"/> 
+            <apex:repeat value="{!kwcamp.CampaignFields}" var="f">
+            <apex:inputField value="{!kwcamp.newCampaign[f.fieldPath]}"  required="{!OR(f.required, f.dbrequired)}"/>
+            </apex:repeat>
+</apex:pageBlockSection>
+</apex:pageBlock>
+
+</apex:outputPanel>
+</apex:actionRegion>
+
+</apex:OutputPanel>
+
+
+
+<script>
+function jsvalidateform () {
+
+var bValidate = true;
+var lnvalue = document.getElementById('{!$Component.ListReviewPage:campaignForm:savedlist:savedlistpSection:savedlistpSectionItem:savedlistname}').value;
+
+    if (lnvalue == null || lnvalue == '') {
+    alert('You must enter a name for a Saved List');
+    bValidate = false;
+    }
+    return bValidate;
+}
+</script>
+
+<script>
+function jsvalidatecampaignform () {
+
+var bValidate = true;
+var lnvalue = document.getElementById('{!$Component.ListReviewPage:campaignForm:NewCampaignCreation:newCampaignBlockpSection:newCampaignBlockNameField}').value;
+
+    if (lnvalue == null || lnvalue == '') {
+    alert('You must supply a name for the Campaign');
+    }
+    else {
+    }
+    return bValidate;
+}
+</script>
+
+
+</apex:form>
+
+
+</apex:page>

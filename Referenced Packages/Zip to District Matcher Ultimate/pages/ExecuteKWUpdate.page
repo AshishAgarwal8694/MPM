@@ -1,0 +1,11 @@
+<apex:page standardController="kwzd__Zip_to_District__c">
+<apex:sectionHeader title="KnowWho Zip to District"/>
+
+<apex:pageMessage severity="INFO">
+Please click Calculate Records to initiate the batch update.
+
+<br/><br/>
+Click&nbsp; <apex:outputLink value="/{!kwzd__Zip_to_District__c.Id}">here</apex:outputLink> to return to the Zip to District record.
+</apex:pageMessage>
+
+</apex:page>

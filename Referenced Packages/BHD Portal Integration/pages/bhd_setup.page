@@ -1,0 +1,115 @@
+<apex:page Controller="bhd.bhd_controller_setup" title="Basic Setup and Summary">
+	<apex:include pageName="bhd__bhd_ajax"/>
+    <apex:include pageName="bhd__bhd_tooltip"/>
+	<br/>
+    <apex:pageBlock title="Remote Site Setting" mode="edit"> 
+    	<div class="maps">
+    		<apex:pagemessage severity="confirm" strength="1" rendered="{!remote_site_setting == true}">
+		        Your Remote Site Setting is setup correctly.
+		    </apex:pagemessage>
+	    	<apex:pagemessage severity="warning" strength="1" rendered="{!remote_site_setting == false}">
+		        Before any other configuration can take place, you must create a Remote Site Setting for Billian's HealthDATA Portal for your organization.
+		        <br/>
+		        Please go to Setup &raquo; Security Controls &raquo; Remote Site Settings &raquo; New Remote Site. You may put any value you like in <i>Remote Site Name</i>, and you must put <b>https://www.billiansonline.com</b> in <i>Remote Site URL</i>.
+		    </apex:pagemessage>
+    	</div>
+    </apex:pageBlock>
+    <apex:form >
+  		<apex:pageBlock title="Authentication" mode="edit"> 
+    	<apex:pageMessages />
+            <apex:pageBlockSection columns="2">
+            	<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Portal ID" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="Please navigate to My Account, User Manager, Resources, Apex Integration in the Billian's HealthDATA Portal to find this information."/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:inputField value="{!sfid.bhd__value__c}" required="true" style="width:250px;"/>
+				</apex:pageBlockSectionItem>
+            	<apex:pageBlockSectionItem >
+				   	<apex:outputLabel value="Apex Token" style="font-weight:bold;" styleClass="bhd_tooltip_hook" title="Please navigate to My Account, User Manager, Resources, Apex Integration in the Billian's HealthDATA Portal to find this information."/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:inputField value="{!token.bhd__value__c}" required="true" style="width:250px;"/>
+				</apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <br/>
+            <apex:commandButton action="{!save}" value="Save"/>
+            <br/><br/>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:pageBlock title="Summary" mode="edit" rendered="{!creds == true}">
+    
+    	<br/> 
+    	<div class="summary" style="margin-left: 50px;">
+	    	<h3>Accounts</h3>
+	    	<div style="margin-left: 50px;">
+	    		<apex:pagemessage severity="confirm" strength="1" rendered="{!summary['sync_accounts'] == true}">
+			        Everything is setup for your Accounts to be synced.
+			        <br/>
+			        You could always&nbsp;<apex:outputLink value="{!$Page.bhd__bhd_map}">map</apex:outputLink> additional fields, <a href="../ui/setup/layout/PageLayouts?type=Account">add</a> the included buttons for viewing in the BHD Portal and reporting data issues, or&nbsp;<apex:outputLink value="{!$Page.bhd__bhd_sync}">edit</apex:outputLink> your sync schedule.
+			    </apex:pagemessage>
+		    	<apex:pagemessage severity="error" strength="1" rendered="{!summary['fls_account'] == true}">
+			        There are problems with your Field Level permissions that will prevent the integration from functioning properly:&nbsp;<apex:outputText value="{!fls_account}" />
+			    </apex:pagemessage>
+		    	<apex:pagemessage severity="warning" strength="1" rendered="{!summary['need_schedule'] == true}">
+			        You can now manually Sync BHD Portal data for Accounts, but consider adding a&nbsp;<apex:outputLink value="{!$Page.bhd__bhd_sync}">schedule</apex:outputLink> to automate the process.
+			    </apex:pagemessage>
+	    	</div>
+    	</div>
+    	<br/>
+    	
+    	<div class="summary" style="margin-left: 50px;">
+	    	<h3>Contacts</h3>
+	    	<div style="margin-left: 50px;">	    
+	    		<apex:pagemessage severity="info" strength="1" rendered="{!summary['need_titlecode'] == true}">
+	    			<b>Titles</b><br/>
+	    			<apex:outputLink value="{!$Page.bhd__bhd_map}?active_tab=lead">Add Title Prioritization</apex:outputLink> to get the most out of your integration.
+	    		</apex:pagemessage>		    		
+	    		<apex:pagemessage severity="info" strength="1">
+	    			<b>Buttons</b><br/>
+	    			For best results, <a href="../ui/setup/layout/PageLayouts?type=Contact">add</a> the included buttons, for viewing records in the BHD Portal and reporting data issues, to your Contact Layout.
+	    		</apex:pagemessage>	
+		    	<apex:pagemessage severity="error" strength="1" rendered="{!summary['fls_contact'] == true}">
+			        There are problems with your Field Level permissions that will prevent the integration from functioning properly:&nbsp;<apex:outputText value="{!fls_contact}" />
+			    </apex:pagemessage>
+	    		<apex:pagemessage severity="confirm" strength="1" rendered="{!summary['sync_contacts'] == true}">
+			        Everything is setup for your Contacts to be synced. You may wish to <a href="../ui/setup/layout/PageLayouts?type=Contact">add</a> the included buttons for viewing in the BHD Portal and reporting data issues.
+			    </apex:pagemessage>
+		    	<apex:pagemessage severity="warning" strength="1" rendered="{!summary['need_contact_sync'] == true}">
+			        Contacts are not currently set to&nbsp;<apex:outputLink value="{!$Page.bhd__bhd_sync}">Sync</apex:outputLink>.
+			    </apex:pagemessage>
+	    	</div>
+    	</div>
+    	<br/>
+    	
+    	<div class="summary" style="margin-left: 50px;">
+	    	<h3>Leads</h3>
+	    	<div style="margin-left: 50px;">  		
+	    		<apex:pagemessage severity="info" strength="1">
+	    			  <b>Lead Conversion</b><br/>
+			    	  If you plan to bring Leads into your instance from the Billian's HealthDATA Portal, it is strongly recommended that you create the following <a href="https://help.salesforce.com/apex/HTViewHelpDoc?id=customize_mapleads.htm&language=en" target="_blank">Lead conversion mappings</a>:
+			    	  <br/>
+			    	  Lead.bhd_directorycode__c >> Account.bhd_directorycode__c <br/>
+			    	  Lead.bhd_leadid__c >> Contact.bhd_contactid__c <br/>
+			    </apex:pagemessage>			    
+	    		<apex:pagemessage severity="info" strength="1" rendered="{!summary['need_titlecode'] == true}">
+	    			<b>Titles</b><br/>
+	    			<apex:outputLink value="{!$Page.bhd__bhd_map}?active_tab=lead">Add Title Prioritization</apex:outputLink> to get the most out of your integration.
+	    		</apex:pagemessage>	
+	    		<apex:pagemessage severity="info" strength="1">
+	    			<b>Buttons</b><br/>
+	    			For best results, <a href="../ui/setup/layout/PageLayouts?type=Lead">add</a> the included buttons, for viewing records in the BHD Portal and reporting data issues, to your Lead Layout.
+	    		</apex:pagemessage>	
+		    	<apex:pagemessage severity="error" strength="1" rendered="{!summary['fls_lead'] == true}">
+			        There are problems with your Field Level permissions that will prevent the integration from functioning properly:&nbsp;<apex:outputText value="{!fls_lead}" />
+			    </apex:pagemessage>
+	    		<apex:pagemessage severity="confirm" strength="1" rendered="{!summary['sync_leads'] == true}">
+			        Everything is setup for your Leads to be synced.
+			    </apex:pagemessage>
+		    	<apex:pagemessage severity="warning" strength="1" rendered="{!summary['need_lead_sync'] == true}">
+			        Leads are not currently set to&nbsp;<apex:outputLink value="{!$Page.bhd__bhd_sync}">Sync</apex:outputLink>.
+			    </apex:pagemessage>
+	    	</div>
+    	</div>
+    	<br/>
+    </apex:pageBlock>
+</apex:page>

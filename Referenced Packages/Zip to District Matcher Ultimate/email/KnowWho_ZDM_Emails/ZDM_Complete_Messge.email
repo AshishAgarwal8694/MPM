@@ -1,0 +1,30 @@
+KNOWWHO ZIP TO DISTRICT MATCHING CONFIRMATION
+
+The KnowWho Zip To District Matching process for {!Zip_to_District_Batch__c.Name} is complete.
+
+{!Zip_to_District__c.Record_Count__c} records matched this filter
+{!Zip_to_District_Batch__c.Total_Records__c} records were included in this batch
+{!Zip_to_District_Batch__c.Total_Successes__c} records were successfully processed in this batch
+{!Zip_to_District_Batch__c.Total_Credits_Used__c} credits were used to process this batch
+
+*************************************************************************************
+
+CUSTOMER SERVICE
+For live assistance with any of our directory or data service products including ordering, account status or special pricing.
+Click to email - customerservice@knowwho.com or call 1.888.KNOWWHO (566.9946) for help.
+
+TECHNICAL SUPPORT
+For live assistance with any of our directory or data service products including downloading, installation, setup and optimization.
+Click to email - technicalsupport@knowwho.com or call 1.888.335.0263 for help.
+
+CORPORATE OFFICE
+For all other assistance including sales, marketing, advertising and strategic partner opportunities.
+Click to email - info@knowwho.com or call 1.888.KNOWWHO (566.9946) for assistance.
+
+MAILING ADDRESS
+Post Office Box 62, Mount Vernon, VA 22121
+
+DISCLAIMER
+This message was sent to you today based on information provided to us via your KnowWho ZDM for Salesforce subscription. If you have received this message in error, please send an email to info@knowwho.com and we will address the problem.
+
+Use of this email and/or the information contained in it constitutes ongoing acceptance of the terms and conditions of your KnowWho ZDM for Salesforce License Agreement.

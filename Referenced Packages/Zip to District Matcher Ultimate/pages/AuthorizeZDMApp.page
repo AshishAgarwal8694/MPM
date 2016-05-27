@@ -1,0 +1,16 @@
+<apex:page cache="FALSE" sidebar="FALSE" Controller="kwzd.KWD_AuthorizeApp" >
+<apex:sectionHeader title="Enable Access for ZDM" subtitle="Authorization for ZDM Application" help="http://www.knowwho.com/" />
+
+<apex:form >
+<apex:pageMessage severity="Confirm" strength="3" title="Enable KnowWho Access" >
+
+<apex:outputText >
+In order for the <apex:outputLink value="https://www.knowwho.com/index.asp" target="_blank"> KnowWho </apex:outputLink> servers to be able to process your records, you need to give permission for the KnowWho servers to access your Salesforce System. <br/> <br/>
+Please click the link below, and when prompted, enter the username and password that you would like to use for KnowWho to access your system. It must be a login with access to the Accounts, Contacts and Leads you plan to update.<br/> <br/>
+<apex:commandLink target="_blank" action="{!submitAuthorization}" value="Click Here to Authorize Access for ZDM Application"/>
+</apex:outputText>
+
+</apex:pageMessage>
+</apex:form>
+
+</apex:page>

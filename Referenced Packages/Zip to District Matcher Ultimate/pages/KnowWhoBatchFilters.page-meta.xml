@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>24.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Batch Filter Override Page</description>
+    <label>KnowWho Batch Filters</label>
+    <packageVersions>
+        <majorNumber>6</majorNumber>
+        <minorNumber>0</minorNumber>
+        <namespace>kw</namespace>
+    </packageVersions>
+</ApexPage>

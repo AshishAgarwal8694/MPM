@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <fullName>Map_Wizard_1</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Open in Map Wizard</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>https://kwmw.na15.visual.force.com/apex/Map_Wizard_1?State={!Account.kw__StateOfCoverage__c }&amp;DistrictCode={!Account.kw__District__c}&amp;Chamber={!Account.kw__Chamber__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Map_Wizard_2</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Plot in Map Wizard</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>https://kwmw.na15.visual.force.com/apex/Map_Wizard_1?Type=account&amp;account={!CASESAFEID( Account.Id )}&amp;chamber=FH</url>
+    </webLinks>
+</CustomObject>

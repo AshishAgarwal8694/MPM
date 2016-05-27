@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>KnowWho_Taxonomy__c.Code__c</field>
+    </columns>
+    <columns>
+        <field>KnowWho_Taxonomy__c.Desc_Short__c</field>
+    </columns>
+    <columns>
+        <field>KnowWho_Taxonomy__c.Desc_Long__c</field>
+    </columns>
+    <columns>
+        <field>KnowWho_Taxonomy__c.SortOrder__c</field>
+    </columns>
+    <description>Taxonomy used for legislative leadership staffer role codes and descriptions. Use this report to help create filtered views associated with specific staffer roles.</description>
+    <filter>
+        <criteriaItems>
+            <column>KnowWho_Taxonomy__c.Leadership_Staffer__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>KnowWho Taxonomy - Leadership Staffers</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$KnowWho_Taxonomy__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>KnowWho_Taxonomy__c.SortOrder__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

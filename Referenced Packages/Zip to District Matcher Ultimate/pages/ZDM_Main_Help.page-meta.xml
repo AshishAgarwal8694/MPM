@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>29.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Custom help page for ZDM main page layout</description>
+    <label>ZDM Main Help</label>
+    <packageVersions>
+        <majorNumber>6</majorNumber>
+        <minorNumber>0</minorNumber>
+        <namespace>kw</namespace>
+    </packageVersions>
+</ApexPage>

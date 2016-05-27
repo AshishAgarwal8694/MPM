@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>C_SL_KnowWhoUltimate</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <namespacePrefix>kw_lfu_sfuwcfu</namespacePrefix>
+    <types>
+        <members>Account.CountyLocal__c</members>
+        <members>Account.County_Code__c</members>
+        <members>Account.Municipal_Code__c</members>
+        <members>Account.MunicipalityLocal__c</members>
+        <members>Account.StateLocal__c</members>
+        <members>Contact.Branch__c</members>
+        <members>Contact.CountyLocal__c</members>
+        <members>Contact.County_Code__c</members>
+        <members>Contact.Department__c</members>
+        <members>Contact.Elected_Position__c</members>
+        <members>Contact.Municipal_Code__c</members>
+        <members>Contact.MunicipalityLocal__c</members>
+        <members>Contact.Organization__c</members>
+        <members>Contact.StateLocal__c</members>
+        <members>Former_Contacts_to_Account__c.Contact__c</members>
+        <members>Former_Contacts_to_Account__c.Current_Account__c</members>
+        <members>Former_Contacts_to_Account__c.KnowWho_Record_ID__c</members>
+        <members>Former_Contacts_to_Account__c.Previous_Relationship__c</members>
+        <members>Former_Contacts_to_Account__c.Role__c</members>
+        <members>Former_Contacts_to_Account__c.Sort_Order_Act__c</members>
+        <members>Former_Contacts_to_Account__c.Sort_Order_Con__c</members>
+        <members>KnowWho_Former_Staff__c.Contact__c</members>
+        <members>KnowWho_Former_Staff__c.Current_Account__c</members>
+        <members>KnowWho_Former_Staff__c.KnowWho_Record_ID__c</members>
+        <members>KnowWho_Former_Staff__c.Related_Contact__c</members>
+        <members>KnowWho_Former_Staff__c.Sort_Order__c</members>
+        <members>KnowWho_Former_Staff__c.Sort_Order_a__c</members>
+        <members>KnowWho_Former_Staff__c.Title__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Former_Contacts_to_Account__c</members>
+        <members>KnowWho_Former_Staff__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Account-KW Account Local County Former</members>
+        <members>Account-KW Account Local County Ultimate</members>
+        <members>Account-KW Account Local Municipal Former</members>
+        <members>Account-KW Account Local Municipal Ultimate</members>
+        <members>Contact-KW Local County Former</members>
+        <members>Contact-KW Local County Ultimate</members>
+        <members>Contact-KW Local Municipal Former</members>
+        <members>Contact-KW Local Municipal Ultimate</members>
+        <members>Former_Contacts_to_Account__c-KnowWho Former Contacts Layout</members>
+        <members>KnowWho_Former_Staff__c-KnowWho Former Staff Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Account.KWL_NY_Counties</members>
+        <members>Account.KWL_NY_Municipalities</members>
+        <members>Contact.KWL_NY_County_Administration</members>
+        <members>Contact.KWL_NY_County_Leg_Officers</members>
+        <members>Contact.KWL_NY_Municipal_Administration</members>
+        <members>Contact.KWL_NY_Municipal_Mayors</members>
+        <name>ListView</name>
+    </types>
+    <types>
+        <members>Account.KW_Local_County</members>
+        <members>Account.KW_Local_County_Former</members>
+        <members>Account.KW_Local_Municipal</members>
+        <members>Account.KW_Local_Municipal_Former</members>
+        <members>Contact.KW_Local_County</members>
+        <members>Contact.KW_Local_County_Former</members>
+        <members>Contact.KW_Local_Municipal</members>
+        <members>Contact.KW_Local_Municipal_Former</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>KnowWho_Reports_Local_Governmnet</members>
+        <members>KnowWho_Reports_Local_Governmnet/County_Call_List_NY</members>
+        <members>KnowWho_Reports_Local_Governmnet/County_Municipality_List</members>
+        <members>KnowWho_Reports_Local_Governmnet/Municipal_Call_List_NY</members>
+        <members>KnowWho_Reports_Local_Governmnet/Municipal_Elected_Officials_by_County</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>Account.Set_KW_Account_County_Former_Record_Type</members>
+        <members>Account.Set_KW_Account_County_Record_Type</members>
+        <members>Account.Set_KW_Account_Municipal_Former_RT</members>
+        <members>Account.Set_KW_Account_Municipal_Record_Type</members>
+        <members>Contact.Set_KW_County_Former_RT</members>
+        <members>Contact.Set_KW_County_Record_Type</members>
+        <members>Contact.Set_KW_Municipal_Former_RT</members>
+        <members>Contact.Set_KW_Municipal_Record_Type</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Account.Set KW Account County Former Record Type</members>
+        <members>Account.Set KW Account County Record Type</members>
+        <members>Account.Set KW Account Municipal Former Record Type</members>
+        <members>Account.Set KW Account Municipal Record Type</members>
+        <members>Contact.Set KW County Former</members>
+        <members>Contact.Set KW County Ultimate</members>
+        <members>Contact.Set KW Municipal Former</members>
+        <members>Contact.Set KW Municipal Ultimate</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>29.0</version>
+</Package>
